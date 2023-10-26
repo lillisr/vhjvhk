@@ -3,7 +3,7 @@
 }
 
 body, button, input::placeholder {
-    font-family:font-family: 'glober-bold-free', sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 /*
 button, input::placeholder, legend {
@@ -19,3 +19,7 @@ img {
     border-radius: 50%;
   }
 
+.coloredButton {
+    color
+
+}
