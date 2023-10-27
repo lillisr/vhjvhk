@@ -61,8 +61,6 @@ hr {
     border: 2px dotted rgb(164, 163, 163); 
 }
 
-<<<<<<< HEAD
-
 #Achtung {
     color:red;
 }
@@ -71,7 +69,7 @@ a:hover {
     
     font-weight:bold
 }
-=======
+
 legend {
     text-align:left;
 }
@@ -80,4 +78,3 @@ input::placeholder {
     text-align:left;
 
 }
->>>>>>> 7c8e9a67f16714a54f9061937134156df13dd773
