@@ -62,3 +62,8 @@ hr {
 legend {
     text-align:left;
 }
+
+input::placeholder {
+    text-align:left;
+
+}
