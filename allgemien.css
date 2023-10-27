@@ -9,6 +9,7 @@ body, button, input::placeholder {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 /*
 button, input::placeholder, legend {
@@ -60,3 +61,12 @@ hr {
     border: 2px dotted rgb(164, 163, 163); 
 }
 
+
+#Achtung {
+    color:red;
+}
+
+a:hover {
+    
+    font-weight:bold
+}
