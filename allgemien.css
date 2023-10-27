@@ -18,7 +18,7 @@ body, button, input::placeholder {
 }
 
 img {
-    border-radius: 50%;
+    border-radius: 0;
   }
 
 .coloredButton {
@@ -70,6 +70,21 @@ a:hover {
     font-weight:bold
 }
 
+.profilefield{
+    order:1px;
+    
+}
+.pictureprofile{
+    order:2px;
+    border:none;
+}
+.containerprofile{
+    display:flex;
+    justify-content: flex-end;
+}
+.customimg{
+    border-radius:0;
+}
 legend {
     text-align:left;
 }
