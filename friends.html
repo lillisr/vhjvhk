@@ -4,33 +4,36 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="allgemien.css">
     </head>
-    <body>
+    <body class="friends">
         <h1> Friends</h1>
-
-        <p><a href="login.html"> &ltLogout</a> | <a href="Aufgabe 1-3_new.html">Settings</a> </p>
+        <p><a href="logout.html" class="friends-links" > &ltLogout</a> | <a href="Aufgabe 1-3_new.html" class="friends-links" >Settings</a> </p>
 
     <hr/>
-
+    <div class="friendslist"> 
         <ul>
-            <li> <a href="chat.html">Tom(3)</a></li>
+            <li><a href="chat.html">Tom(3)</a></li>
             <li><a href="chat.html">Marvin(1)</a></li>
             <li><a href="chat.html">Tick</a></li>
             <li><a href="chat.html">Trick</a></li>
         </ul>
-
+    </div>
     <hr/>
 
         <h2> New Requests</h2>
-            <p> 1. Friends request from <strong> Track </strong> 
-                <button id="AcceptButton" type="Accept" >Accept</button>
-                <button type="Reject" >Reject</button>
-            </p>
+        <div class="request"> 
+            <p> 1. Friends request from <strong> Track </strong></p>
+            <div class="action-buttons">
+                <button class="greyButton" type="Accept" >Accept</button>
+                <button class="greyButton" type="Reject">Reject</button>
+            </div>
+        </div>   
 
     <hr/>
-
-        <p>
-            <input type="text" id="addfriends" name="addfriends" placeholder="Add Friend to List">
-            <button type="Add"  >Add</button>
-        </p>
+        <div class="add"> 
+            <p><input type="text" id="addfriends" name="addfriends" placeholder="Add Friend to List"></p>
+                <div class="addButton"> 
+                    <button class="greyButton" type="Add">Add</button>
+                </div>
+        </div>
     </body>
 </html>

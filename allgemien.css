@@ -1,7 +1,4 @@
-/* muss man löschen */
- .headline{
-    color:rebeccapurple
-}
+
 
 body {
     background-color: #F8F9FB;
@@ -48,6 +45,7 @@ img {
     cursor: pointer;
 }
 
+
 .legendFieldset {
     background-color: white;
     border: 2px dotted rgb(164, 163, 163); 
@@ -92,4 +90,45 @@ legend {
 
 input::placeholder {
     text-align:left;
+}
+
+/* Friendslist */
+.friends {
+    text-align: left;
+    margin: 3px 3px;
+}
+
+ul{
+    list-style-type: none;
+    display: inline-block;
+    
+}
+
+.friendslist {
+    border: 3px solid grey ;
+    padding: 5px;
+}
+
+.request {
+    display: flex;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px; 
+    margin-left: 10px;
+}
+
+.add {
+    display: flex;
+    align-items: center;
+}
+
+.addButton {
+    display: flex;
+    margin-left: 10px;
+}
+.friends-links {
+    color:#007bff;;
 }
