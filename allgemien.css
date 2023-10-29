@@ -1,9 +1,11 @@
+/* muss man löschen */
  .headline{
     color:rebeccapurple
 }
 
 body {
     background-color: #F8F9FB;
+    padding: 70px 0;
 }
 
 body, button, input::placeholder {
@@ -65,5 +67,4 @@ legend {
 
 input::placeholder {
     text-align:left;
-
 }
