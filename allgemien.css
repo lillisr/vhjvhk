@@ -5,7 +5,6 @@
 
 body {
     background-color: #F8F9FB;
-    padding: 70px 0;
 }
 
 body, button, input::placeholder {
@@ -15,10 +14,11 @@ body, button, input::placeholder {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 img {
-    border-radius: 50%;
+    border-radius: 0;
   }
 
 .coloredButton {
@@ -61,6 +61,30 @@ hr {
     border: 2px dotted rgb(164, 163, 163); 
 }
 
+#Achtung {
+    color:red;
+}
+
+a:hover {
+    
+    font-weight:bold
+}
+
+.profilefield{
+    order:1px;
+    
+}
+.pictureprofile{
+    order:2px;
+    border:none;
+}
+.containerprofile{
+    display:flex;
+    justify-content: flex-end;
+}
+.customimg{
+    border-radius:0;
+}
 legend {
     text-align:left;
 }
