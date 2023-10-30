@@ -128,7 +128,7 @@ ul{
 }
 
 /* responsive design */
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 900px) {
      [class*='col-'] {
         width: 100%;
     }
