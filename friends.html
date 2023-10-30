@@ -1,41 +1,49 @@
 <html>
-    <head>
-        <title>friends</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="allgemien.css">
-    </head>
-    <body class="friends">
-        <h1> Friends</h1>
-        <p><a href="logout.html" class="friends-links" > &ltLogout</a> | <a href="Aufgabe 1-3_new.html" class="friends-links" >Settings</a> </p>
 
-    <hr/>
-    <div class="friendslist"> 
-        <ul>
-             
-            <li id="list-item"><a href="chat.html">Tom(3)</a></li>
-            <li id="list-item"><a href="chat.html">Marvin(1)</a></li>
-            <li id="list-item"><a href="chat.html">Tick</a></li>
-            <li id="list-item"><a href="chat.html">Trick</a></li>
-            
-        </ul>
-    </div>
-    <hr/>
+<head>
+    <title>friends</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="allgemien.css">
+</head>
 
-        <h2> New Requests</h2>
-        <div class="col-request"> 
-            <p> 1. Friends request from <strong> Track </strong></p>
-            <div class="col-action-buttons">
-                <button class="greyButton" type="Accept" >Accept</button>
-                <button class="greyButton" type="Reject">Reject</button>
-            </div>
-        </div>   
-
-    <hr/>
-        <div class="add"> 
-            <p><input type="text" id="addfriends" name="addfriends" placeholder="Add Friend to List"></p>
-                <div class="addButton"> 
-                    <button class="greyButton" type="Add">Add</button>
-                </div>
+<body class="friends">
+    <div class="root">
+        <div class="col-12">
+            <h1> Friends</h1>
+            <p><a href="logout.html" class="friends-links"> &ltLogout</a> | <a href="Aufgabe 1-3_new.html"
+                    class="friends-links">Settings</a> </p>
         </div>
-    </body>
+    </div>
+    <hr />
+    <div class="friendslist">
+        <div class="col-12">
+            <ul>
+                <li id="list-item"><a href="chat.html">Tom(3)</a></li>
+                <li id="list-item"><a href="chat.html">Marvin(1)</a></li>
+                <li id="list-item"><a href="chat.html">Tick</a></li>
+                <li id="list-item"><a href="chat.html">Trick</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    <div class="col-12">
+        <h2> New Requests</h2>
+    </div>
+    <div>
+        <p> 1. Friends request from <strong> Track </strong></p>
+        <div>
+            <button class="greyButton" type="Accept">Accept</button>
+            <button class="greyButton" type="Reject">Reject</button>
+        </div>
+    </div>
+
+    <hr />
+    <div class="add">
+        <p><input type="text" id="addfriends" name="addfriends" placeholder="Add Friend to List"></p>
+        <div class="addButton">
+            <button class="greyButton" type="Add">Add</button>
+        </div>
+    </div>
+</body>
+
 </html>

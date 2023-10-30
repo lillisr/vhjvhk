@@ -15,8 +15,8 @@ body, button, input::placeholder {
     
 }
 
-img {
-    border-radius: 0;
+.login-pic {
+    border-radius: 50%;
   }
 
 .coloredButton {
@@ -128,7 +128,7 @@ ul{
 }
 
 /* responsive design */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 100px) {
      [class*='col-'] {
         width: 100%;
     }
