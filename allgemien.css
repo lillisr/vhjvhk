@@ -100,6 +100,7 @@ input::placeholder {
 
 ul{
     list-style-type: none;
+    text-decoration:none;
     display: inline-block;
     padding: 0;
     margin: 10px;  
@@ -113,6 +114,10 @@ ul{
 
 #list-item {
     margin-bottom: 5px;
+}
+
+.notifications {
+float: right;
 }
 
 .col-request {
