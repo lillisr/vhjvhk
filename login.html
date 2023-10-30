@@ -1,26 +1,29 @@
 <html>
+
 <head>
     <title>login</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
 </head>
+
 <body>
+    <div class="container">
+        <img src="chat.png" width="100" height="100" class="login-pic">
+        <h1>Please sign in</h1>
 
-<img src="chat.png" width="100" height="100" class="login-pic">
-<h1>Please sign in</h1>
+        <form>
+            <fieldset class="legendFieldset">
+                <legend>Login</legend>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required><br><br>
 
-<form> 
- <fieldset class="legendFieldset">
-  <legend>Login</legend>
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" placeholder="Username" required><br><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" placeholder="Password" required><br><br>
-  
-  <button type="submit" formaction="register.html" class="greyButton" formnovalidate >Register</button></a>
-  <button type="submit" formaction="friends.html"class="coloredButton" >Login</button></a>
- </fieldset>
-</form> 
-
+                <button type="submit" formaction="register.html" class="greyButton" formnovalidate>Register</button></a>
+                <button type="submit" formaction="friends.html" class="coloredButton">Login</button></a>
+            </fieldset>
+        </form>
+    </div>
 </body>
+
 </html>

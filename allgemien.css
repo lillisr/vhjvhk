@@ -92,6 +92,16 @@ input::placeholder {
     text-align:left;
 }
 
+/* Login */
+.container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-left: 10pt;
+    padding-right: 10pt;
+}
+
+
+
 /* Friendslist */
 .friends {
     text-align: left;
@@ -134,34 +144,40 @@ ul{
 text-decoration: none;
 float: right;
 }
+.request {
+    display: flex;
+    justify-content: space-between;
+}
 
-.col-request {
+.request-action-buttons {
     display: flex;
     align-items: center;
+    gap: 10px; 
 }
 
-.col-action-buttons {
-    display: flex;
-    gap: 5px; 
-    margin-left: 10px;
-    
+.input-addFriend {
+    box-sizing: border-box;
+    font-size: 1em;
+    padding: 9px 7px;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
-/* responsive design */
-@media only screen and (max-width: 100px) {
-     [class*='col-'] {
-        width: 100%;
-    }
+.add input {
+    width: 100%;
 }
 
 .add {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .addButton {
     display: flex;
     margin-left: 10px;
+
 }
 .friends-links {
     color:#007bff;;
