@@ -21,7 +21,7 @@ p, h1, h2, legend, button, input::placeholder, label {
 } */
 
 img {
-    border-radius: 25%;
+    border-radius: 50%;
 }
 
 .coloredButton {
