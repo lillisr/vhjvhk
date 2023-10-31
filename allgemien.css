@@ -1,5 +1,14 @@
- h1{
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
     color: rgb(0, 0, 0);
+}
+
+body{
+    width: 900px;
+    height: 50%;
+    margin:auto;
 }
 
 /*body, button, input::placeholder {
