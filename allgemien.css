@@ -13,8 +13,11 @@ body, button, input::placeholder {
 
 legend {
     background-color: white;
-    color: white;
-    padding: 3px 5px;
+    color: black;
+    display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
 }
 /*
 button, input::placeholder, legend {
