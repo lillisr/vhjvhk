@@ -1,5 +1,5 @@
  h1{
-    color: dodgerblue;
+    color: rgb(0, 0, 0);
 }
 
 /*body, button, input::placeholder {
@@ -25,7 +25,7 @@ legend {
 }
 
 .coloredButton{
-    background-color: blue;
+    background-color: dodgerblue;
 }
 /*
 button, input::placeholder, legend {
