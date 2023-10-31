@@ -10,6 +10,9 @@ body, button, input::placeholder {
     margin-left: auto;
     margin-right: auto;
 }
+.chat {
+    text-align: center;
+}
 
 legend {
     background-color: white;
