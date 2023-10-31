@@ -11,7 +11,7 @@
     margin-right: auto;
 }
 */
-.login .register .logout {
+.login, .register, .logout {
     text-align: center;
 }
 
