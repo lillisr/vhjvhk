@@ -9,8 +9,6 @@ h1{
     color: rgb(0, 0, 0);
 }
 
-
-
 body{
     width: 900px;
     height: 50%;
@@ -34,7 +32,12 @@ legend {
     background-color: dodgerblue;
 }
 .Remove{
-    color: red;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 img {
