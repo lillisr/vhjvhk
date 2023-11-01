@@ -32,7 +32,6 @@ legend {
     background-color: dodgerblue;
     color: aliceblue;
 }
-<<<<<<< HEAD
 
 /* Login */
 .container {
@@ -53,13 +52,6 @@ legend {
 
 ul{
     list-style-type: none;
-=======
-#Remove {
-    background-color: #f44336;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
->>>>>>> aad42ff8cd5ce8e7a2fe43ec03a50ee64763cb24
     text-decoration: none;
     display: inline-block;
 }
@@ -69,7 +61,6 @@ ul{
     width: 100;
     height: 100;
 }
-<<<<<<< HEAD
 
 .friendslist li {
     margin-bottom: 5px;
@@ -131,5 +122,3 @@ float: right;
 .friends-links {
     color:#007bff;;
 }
-=======
->>>>>>> aad42ff8cd5ce8e7a2fe43ec03a50ee64763cb24
