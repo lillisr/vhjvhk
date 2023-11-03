@@ -13,6 +13,9 @@ h1{
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
     /*text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 legend {
@@ -121,6 +124,23 @@ text-decoration: none;
 }
 
 /* responsive design */
+/*profile*/
+.containerprofile{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.pictureprofile{
+    order: 1;
+}
+.profilefield{
+    order:2;
+}
+.legendFieldset{
+    
+}
+
+/* responsive design 
 @media screen and (max-width: 900px) {
     .request {
         width: 100%;
