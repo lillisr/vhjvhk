@@ -153,7 +153,12 @@ text-decoration: none;
     color:#007bff;;
 }
 
-
+.pw label{
+    margin-right: 68px;
+}
+.userL label{
+    margin-right: 62px;
+}
 
 /* responsive design */
 
