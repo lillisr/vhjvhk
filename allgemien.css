@@ -10,16 +10,9 @@ h1{
 }
 
 
-body{
-    /*
-    width: 900px;
-    height: 50%;
-    margin: auto; */
-} 
-
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
-    text-align: center; 
+    /*text-align: center; */
 }
 
 legend {
@@ -43,7 +36,6 @@ legend {
     padding-left: 10pt;
     padding-right: 10pt;
 }
-
 
 
 /* Friendslist */
