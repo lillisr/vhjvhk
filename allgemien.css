@@ -19,6 +19,7 @@ h1{
     text-align: center;
 }
 
+/*legend layout */
 legend {
     display: block;    
     padding-left: 2px;
@@ -26,11 +27,21 @@ legend {
     border: none;
 }
 
-/* Buttons von Login, Register*/
+/* color and layout for buttons */
 .coloredButton{
     background-color: dodgerblue;
     color: aliceblue;
+    border: 0;
+    padding: 9px 10px;
 }
+
+.greyButton {
+    background-color: rgb(98, 98, 98);
+    color: aliceblue;
+    border: 0;
+    padding: 9px 10px;
+}
+
 
 /* Login */
 .container {
@@ -42,6 +53,16 @@ legend {
 
 }
 
+/* to align it */
+.password label {
+    margin-right:6px;
+}
+
+/* for background color */
+.legendFieldset div, .legendFieldset label, .legendFieldset input .legendFielset p {
+    background-color: aliceblue;
+}
+
 
 /* Friendslist */
 .friends {
@@ -49,6 +70,7 @@ legend {
     margin: 3px 3px;
 }
 
+/*friends listing */
 .friendslist ul{
     list-style-type: none;
     text-decoration: none;
@@ -57,22 +79,25 @@ legend {
 
 }
 
+/*space between friends */
 .friendslist li {
     padding-bottom: 3pt;
 }
 
+/*for images (round edges) */
 #image {
     border-radius: 50%;
     width: 100;
     height: 100;
 }
 
-
+/* link for the friends, no link design, */
 .friendslist a {
     text-decoration: none;
     color:black;
 }
 
+/* the notifications besides the friends, did it as a span! */
 .friendslist span {
     float: right;
     background: #007bff; 
@@ -86,10 +111,12 @@ legend {
 text-decoration: none;
 }
 
+
+/* accept and request buttons in one line, when Screen is bigger than 900px */
 .request {
     display: flex;
     justify-content: space-between;
-}
+} 
 
 .request-action-buttons {
     display: flex;
