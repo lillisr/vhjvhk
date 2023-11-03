@@ -8,12 +8,8 @@
 h1{
     color: rgb(0, 0, 0);
 } 
-
-
-/*makes these pages centered*/
-.login, .register, .logout {
-    /*text-align: center; */
- display: flex;
+.logout {
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
