@@ -127,6 +127,8 @@ text-decoration: none;
 }
 
 /* responsive design */
+
+/*lil*/
 /*profile*/
 .containerprofile{
     display: flex;
@@ -148,9 +150,13 @@ border:dotted;
 background-color: aliceblue;
 
 }
-.setting p{
+.settings p{
     background-color: aliceblue;
 }
+.containerprofile p,th,tr,table,td{
+    background-color: aliceblue;
+}
+
 #Achtung{
     color:red;
 }
@@ -162,7 +168,7 @@ hr{
     border:dashed;
 }
 
-
+/*lill*/
 
 >>>>>>> 22644a4be27c40c477ddc2b9bf3e5df9e836a868
 #chat{
@@ -197,7 +203,7 @@ hr{
 .sendButton{
     display: flex;
     margin-left: 10px;
-}
+} 
 
 @media screen and (max-width: 900px) {
     .request {
@@ -206,6 +212,11 @@ hr{
         margin: 0;
         margin-top: 10pt;
         padding-left: 5pt;
+        
+    }
+    .containerprofile{
+        display: inline-block; 
+        flex-direction: column;
     }
 
     .friends h2 {
@@ -214,6 +225,10 @@ hr{
 
     .friends span {
         float: left;
+    }
+
+    .profile fieldset {
+        width: 100%;
     }
 
 }
