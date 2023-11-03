@@ -13,6 +13,10 @@ h1{
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
     /*text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 legend {
@@ -45,10 +49,16 @@ legend {
     margin: 3px 3px;
 }
 
-ul{
+.friendslist ul{
     list-style-type: none;
     text-decoration: none;
     display: inline-block;
+    width: 95%;
+
+}
+
+.friendslist li {
+    padding-bottom: 3pt;
 }
 
 #image {
@@ -57,12 +67,6 @@ ul{
     height: 100;
 }
 
-.friendslist li {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    
-}
 
 .friendslist a {
     text-decoration: none;
@@ -117,10 +121,12 @@ text-decoration: none;
     margin-left: 10px;
 
 }
+
 .friends-links {
     color:#007bff;;
 }
 
+/* responsive design */
 /*profile*/
 .containerprofile{
     display: flex;
@@ -156,16 +162,55 @@ hr{
 
 
 
+#chat{
+    resize: horizontal;
+}
 
-/* responsive design 
+.chat ul{
+    width: 95%;
+}
+
+.chat span {
+    float: right;
+    color: rgb(204, 207, 209);
+}
+.Message{
+    box-sizing: border-box;
+    font-size: 1em;
+    padding: 9px 7px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.newMessage input{
+    width: 100%;
+}
+.newMessage{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.sendButton{
+    display: flex;
+    margin-left: 10px;
+}
+
 @media screen and (max-width: 900px) {
-
-    .request-action-buttons {
+    .request {
         width: 100%;
-        display: block;
+        display: inline-block; 
         margin: 0;
-        margin-top: 10pt; 
+        margin-top: 10pt;
         padding-left: 5pt;
     }
-  
-}  */
+
+    .friends h2 {
+        margin:0;
+    }
+
+    .friends span {
+        float: left;
+    }
+
+}
