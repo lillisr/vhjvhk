@@ -146,7 +146,9 @@ text-decoration: none;
 fieldset{
 border:dotted;
 background-color: aliceblue;
-
+}
+label{
+    background-color: aliceblue;
 }
 .settings p{
     background-color: aliceblue;
@@ -164,6 +166,11 @@ a:hover{
 }
 hr{
     border:dashed;
+}
+
+.Basedata p{
+    display:inline-block;
+text-align: center;
 }
 
 /*lill*/
