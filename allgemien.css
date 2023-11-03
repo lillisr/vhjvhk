@@ -152,7 +152,7 @@ text-decoration: none;
 .friends-links {
     color:#007bff;;
 }
-
+/* aligning labels*/
 .pw label{
     margin-right: 68px;
 }
@@ -209,6 +209,7 @@ text-align: center;
 
 /*lill*/
 
+/*fine tuning chat-interface*/
 #chat{
     resize: horizontal;
 }
@@ -221,6 +222,7 @@ text-align: center;
     float: right;
     color: rgb(204, 207, 209);
 }
+
 .Message{
     box-sizing: border-box;
     font-size: 1em;
@@ -237,7 +239,6 @@ text-align: center;
     width: 100%;
     justify-content: space-between;
 }
-
 .sendButton{
     display: flex;
     margin-left: 10px;
