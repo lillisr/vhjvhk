@@ -11,14 +11,15 @@ h1{
 
 
 body{
+    /*
     width: 900px;
     height: 50%;
-    margin: auto; 
+    margin: auto; */
 } 
 
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
-    text-align: center;
+    text-align: center; 
 }
 
 legend {
@@ -36,6 +37,7 @@ legend {
 
 /* Login */
 .container {
+    max-width: 900px;
     margin: 0 auto;
     box-sizing: border-box;
     padding-left: 10pt;
@@ -63,7 +65,10 @@ ul{
 }
 
 .friendslist li {
-    margin-bottom: 5px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    
 }
 
 .friendslist a {
@@ -82,7 +87,6 @@ ul{
 
 .notifications a {
 text-decoration: none;
-float: right;
 }
 
 .request {
