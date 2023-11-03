@@ -143,8 +143,6 @@ text-decoration: none;
     order:2;
 }
 
-<<<<<<< HEAD
-=======
 fieldset{
 border:dotted;
 background-color: aliceblue;
@@ -170,7 +168,6 @@ hr{
 
 /*lill*/
 
->>>>>>> 22644a4be27c40c477ddc2b9bf3e5df9e836a868
 #chat{
     resize: horizontal;
 }
@@ -231,4 +228,17 @@ hr{
         width: 100%;
     }
 
+}
+
+.registerField label {
+    display: inline-block;
+    width: 20%; text-align: right; 
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+.registerField input {
+    width: 80%;
+    box-sizing: border-box; 
+    font-size: 1em;
+    padding: 2pt 10pt;
 }
