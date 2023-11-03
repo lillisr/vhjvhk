@@ -11,19 +11,22 @@
                 <h1>Register yourself</h1>
                     <form action="/action_page.php">
                         <fieldset class="legendFieldset">
-                                <legend>Register</legend><br>
-                                <div class="alignCon">
-                                    <div><label for="uname">Username:</label></div>
-                                    <div><input type="text" id="uname" name="uname" value="Username" placeholder="Username"><br></div>
-                                    <div><label for="pw">Password:</label></div>
-                                    <div><input type="text" id="pw" name="pw" value="Password" placeholder="Password"><br><br></div>
-                                    <div><label for="cPw">Confirm Password:</label></div>
-                                    <div><input type="text" id="cPw" name="cPw" value="Confirm Password" placeholder="Confirm Password"><br><br></div>
+                            <legend>Register</legend><br>
+                                <div class="userL">
+                                    <label for="uname">Username:</label>
+                                    <input type="text" id="uname" name="uname" value="Username" placeholder="Username"><br><br>
                                 </div>
+                                    <div class="pw">
+                                    <label for="pw">Password:</label>
+                                    <input type="text" id="pw" name="pw" value="Password" placeholder="Password"><br><br>
+                                </div>
+                                <label for="cPw">Confirm Password:</label>
+                                <input type="text" id="cPw" name="cPw" value="Confirm Password" placeholder="Confirm Password"><br><br>
+                                <p></p>
+                                <a href="login.html" target="_blank" ></a><button formaction="login.html" class="greyButton"> Cancel</button>
+                                <a href="login.html" target="_blank" ></a><button formaction="login.html" class="coloredButton"> Create Account</button>
                         </fieldset>
-                        <a href="login.html" target="_blank" ></a><button formaction="login.html" class="greyButton"> Cancel</button>
-                        <a href="login.html" target="_blank" ></a><button formaction="login.html" class="coloredButton"> Create Account</button>
-                    </form>
+                            </form>
         </div>
     </body>
 </html>

@@ -13,7 +13,7 @@ h1{
 /*makes these pages centered*/
 .login, .register, .logout {
     /*text-align: center; */
-    display: flex;
+ display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -151,6 +151,13 @@ text-decoration: none;
 
 .friends-links {
     color:#007bff;;
+}
+
+.pw label{
+    margin-right: 68px;
+}
+.userL label{
+    margin-right: 62px;
 }
 
 /* responsive design */
