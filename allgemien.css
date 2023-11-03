@@ -10,19 +10,15 @@ h1{
 }
 
 
-body{
-    /*
-    width: 900px;
-    height: 50%;
-    margin: auto; */
-} 
-
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
     /*text-align: center; */
+<<<<<<< HEAD
     display: flex;
     justify-content: center;
     align-items: center;
+=======
+>>>>>>> fc1f66c4b3acde22124e6739a3f0ae0c54f57cf3
 }
 
 legend {
@@ -46,6 +42,7 @@ legend {
     padding-left: 10pt;
     padding-right: 10pt;
 }
+
 
 /* Friendslist */
 .friends {
@@ -127,6 +124,22 @@ text-decoration: none;
 }
 .friends-links {
     color:#007bff;;
+}
+
+/*profile*/
+.containerprofile{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.pictureprofile{
+    order: 1;
+}
+.profilefield{
+    order:2;
+}
+.legendFieldset{
+    
 }
 
 /* responsive design 
