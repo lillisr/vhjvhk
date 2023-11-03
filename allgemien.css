@@ -157,6 +157,7 @@ label{
     background-color: aliceblue;
 }
 
+
 #Achtung{
     color:red;
 }
@@ -168,10 +169,22 @@ hr{
     border:dashed;
 }
 
-.Basedata p{
-    display:inline-block;
-text-align: center;
+ #weite{
+    width:300px;
+
 }
+.FN label {
+    margin-right:58px;
+}
+
+.LN label {
+    margin-right:60px;
+}
+
+.T label{
+    margin-right:30px;
+}
+
 
 /*lill*/
 
