@@ -48,10 +48,16 @@ legend {
     margin: 3px 3px;
 }
 
-ul{
+.friendslist ul{
     list-style-type: none;
     text-decoration: none;
     display: inline-block;
+    width: 95%;
+
+}
+
+.friendslist li {
+    padding-bottom: 3pt;
 }
 
 #image {
@@ -60,12 +66,6 @@ ul{
     height: 100;
 }
 
-.friendslist li {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    
-}
 
 .friendslist a {
     text-decoration: none;
@@ -125,6 +125,7 @@ text-decoration: none;
     color:#007bff;;
 }
 
+/* responsive design */
 /*profile*/
 .containerprofile{
     display: flex;
@@ -174,15 +175,21 @@ text-decoration: none;
     margin-left: 10px;
 }
 
-/* responsive design 
 @media screen and (max-width: 900px) {
-
-    .request-action-buttons {
+    .request {
         width: 100%;
-        display: block;
+        display: inline-block; 
         margin: 0;
-        margin-top: 10pt; 
+        margin-top: 10pt;
         padding-left: 5pt;
     }
-  
-}  */
+
+    .friends h2 {
+        margin:0;
+    }
+
+    .friends span {
+        float: left;
+    }
+
+}
