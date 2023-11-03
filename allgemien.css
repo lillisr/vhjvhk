@@ -140,7 +140,6 @@ text-decoration: none;
     
 }
 
-/* responsive design 
 @media screen and (max-width: 900px) {
     .request {
         width: 100%;
