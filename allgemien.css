@@ -13,12 +13,9 @@ h1{
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
     /*text-align: center; */
-<<<<<<< HEAD
     display: flex;
     justify-content: center;
     align-items: center;
-=======
->>>>>>> fc1f66c4b3acde22124e6739a3f0ae0c54f57cf3
 }
 
 legend {
