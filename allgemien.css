@@ -1,16 +1,16 @@
-/*bei allem relevant:*/
+/*for everything:*/
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(234, 234, 234);
 }
 
-/*Überschriften:*/
+/*headings:*/
 h1{
     color: rgb(0, 0, 0);
 }
 
 
-/*nur die drei Seiten zentriert*/
+/*makes these pages centered*/
 .login, .register, .logout {
     /*text-align: center; */
     display: flex;
