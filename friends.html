@@ -7,43 +7,48 @@
 </head>
 
 <body class="friends">
-    <div class="root">
-        <div class="col-12">
-            <h1> Friends</h1>
-            <p><a href="logout.html" class="friends-links"> &ltLogout</a> | <a href="Aufgabe 1-3_new.html"
-                    class="friends-links">Settings</a> </p>
+    <div class="container">
+        <div class="root">
+            <div class="col-12">
+                <h1> Friends</h1>
+                <p><a href="logout.html" class="friends-links"> &ltLogout</a> | <a href="Aufgabe 1-3_new.html"
+                        class="friends-links">Settings</a> </p>
+            </div>
         </div>
-    </div>
-    <hr />
-    <div class="friendslist">
-        <div class="col-12">
-            <ul>
-                <li id="list-item"><a href="chat.html">Tom <span class="notifactions">3</span> </a> </li>
-                <li id="list-item"><a href="chat.html">Marvin <span class="notifactions">1</span</a></li>
-                <li id="list-item"><a href="chat.html">Tick</a></li>
-                <li id="list-item"><a href="chat.html">Trick</a></li>
-            </ul>
+        <hr />
+        <div class="friendslist">
+            <div>
+                <ul>
+                    <li id="list-item"><a href="chat.html">Tom <span class="notifications">3</span> </a> </li>
+                    <li id="list-item"><a href="chat.html">Marvin <span class="notifications">1</span> </a></li>
+                    <li id="list-item"><a href="chat.html">Tick</a></li>
+                    <li id="list-item"><a href="chat.html">Trick</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <hr />
-    <div class="col-12">
+        <hr />
+
         <h2> New Requests</h2>
-    </div>
-    <div>
-        <p> 1. Friends request from <strong> Track </strong></p>
-        <div>
-            <button class="greyButton" type="Accept">Accept</button>
-            <button class="greyButton" type="Reject">Reject</button>
+
+        <div class="request">
+            <div class="request-content">
+                <p> 1. Friends request from <strong> Track </strong></p>
+            </div>
+            <div class="request-action-buttons">
+                <button class="greyButton" type="Accept">Accept</button>
+                <button class="greyButton" type="Reject">Reject</button>
+            </div>
         </div>
+        <hr />
+        <div class="add">
+            <input class="input-addFriend" type="text" placeholder="Add Friend to List">
+            <div class="addButton">
+                <button class="greyButton" type="Add">Add</button>
+            </div>
+        </div>
+
     </div>
 
-    <hr />
-    <div class="add">
-        <p><input type="text" id="addfriends" name="addfriends" placeholder="Add Friend to List"></p>
-        <div class="addButton">
-            <button class="greyButton" type="Add">Add</button>
-        </div>
-    </div>
 </body>
 
 </html>

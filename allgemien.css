@@ -9,15 +9,17 @@ h1{
     color: rgb(0, 0, 0);
 }
 
+
 body{
+    /*
     width: 900px;
     height: 50%;
-    margin: auto;
-}
+    margin: auto; */
+} 
 
 /*nur die drei Seiten zentriert*/
 .login, .register, .logout {
-    text-align: center;
+    text-align: center; 
 }
 
 legend {
@@ -32,11 +34,26 @@ legend {
     background-color: dodgerblue;
     color: aliceblue;
 }
-#Remove {
-    background-color: #f44336;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
+
+/* Login */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-left: 10pt;
+    padding-right: 10pt;
+}
+
+
+
+/* Friendslist */
+.friends {
+    text-align: left;
+    margin: 3px 3px;
+}
+
+ul{
+    list-style-type: none;
     text-decoration: none;
     display: inline-block;
 }
@@ -46,3 +63,80 @@ legend {
     width: 100;
     height: 100;
 }
+
+.friendslist li {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.friendslist a {
+    text-decoration: none;
+    color:black;
+}
+
+.friendslist span {
+    float: right;
+    background: #007bff; 
+    color: white; 
+    width: 15pt;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.notifications a {
+text-decoration: none;
+}
+
+.request {
+    display: flex;
+    justify-content: space-between;
+}
+
+.request-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.input-addFriend {
+    box-sizing: border-box;
+    font-size: 1em;
+    padding: 9px 7px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.add input {
+    width: 100%;
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.addButton {
+    display: flex;
+    margin-left: 10px;
+
+}
+.friends-links {
+    color:#007bff;;
+}
+
+/* responsive design 
+@media screen and (max-width: 900px) {
+
+    .request-action-buttons {
+        width: 100%;
+        display: block;
+        margin: 0;
+        margin-top: 10pt; 
+        padding-left: 5pt;
+    }
+  
+}  */
