@@ -8,6 +8,22 @@
 h1{
     color: rgb(0, 0, 0);
 } 
+/*LINES*/
+hr{
+    border:dashed;
+}
+/*backgroundcolor*/
+label{
+    background-color: aliceblue;
+}
+.settings p{
+    background-color: aliceblue;
+}
+.containerprofile p,th,tr,table,td{
+    background-color: aliceblue;
+}
+
+/* only logout screen centered */
 .logout {
     display: flex;
     justify-content: center;
@@ -21,8 +37,12 @@ legend {
     padding-left: 2px;
     padding-right: 2px;
     border: none;
+}  
+/*filedset layout*/
+fieldset{
+border:dotted;
+background-color: aliceblue;
 }
-
 /* color and layout for buttons */
 .coloredButton{
     background-color: dodgerblue;
@@ -158,7 +178,7 @@ text-decoration: none;
 
 
 
-/*profile*/
+/*profile page*/
 .containerprofile{
     display: flex;
     justify-content: space-between;
@@ -172,21 +192,8 @@ text-decoration: none;
     order:2;
 }
 
-fieldset{
-border:dotted;
-background-color: aliceblue;
-}
-label{
-    background-color: aliceblue;
-}
-.settings p{
-    background-color: aliceblue;
-}
-.containerprofile p,th,tr,table,td{
-    background-color: aliceblue;
-}
 
-
+/*links*/
 #Achtung{
     color:red;
 }
@@ -194,9 +201,8 @@ a:hover{
     color:cornflowerblue;
    font-weight: bold;
 }
-hr{
-    border:dashed;
-}
+
+/*settings*/
 
  #weite{
     width:300px;
@@ -217,7 +223,7 @@ hr{
 
 
 
-/*fine tuning chat-interface*/
+/*chat-interface*/
 #chat{
     resize: horizontal;
 }
@@ -251,6 +257,7 @@ hr{
     display: flex;
     margin-left: 10px;
 } 
+/*respnsive design*/
 
 @media screen and (max-width: 900px) {
     .request {
