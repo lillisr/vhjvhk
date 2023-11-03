@@ -16,6 +16,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 legend {
@@ -119,6 +120,7 @@ text-decoration: none;
     margin-left: 10px;
 
 }
+
 .friends-links {
     color:#007bff;;
 }
@@ -138,6 +140,39 @@ text-decoration: none;
 }
 .legendFieldset{
     
+}
+#chat{
+    resize: horizontal;
+}
+
+.chat ul{
+    width: 95%;
+}
+
+.chat span {
+    float: right;
+    color: rgb(204, 207, 209);
+}
+.Message{
+    box-sizing: border-box;
+    font-size: 1em;
+    padding: 9px 7px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.newMessage input{
+    width: 100%;
+}
+.newMessage{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.sendButton{
+    display: flex;
+    margin-left: 10px;
 }
 
 @media screen and (max-width: 900px) {
