@@ -39,6 +39,7 @@ legend {
     box-sizing: border-box;
     padding-left: 10pt;
     padding-right: 10pt;
+
 }
 
 
@@ -134,13 +135,33 @@ text-decoration: none;
 }
 .pictureprofile{
     order: 1;
+    border:none;
 }
 .profilefield{
     order:2;
 }
-.legendFieldset{
-    
+
+fieldset{
+border:dotted;
+background-color: aliceblue;
+
 }
+.setting p{
+    background-color: aliceblue;
+}
+#Achtung{
+    color:red;
+}
+a:hover{
+    color:cornflowerblue;
+   font-weight: bold;
+}
+hr{
+    border:dashed;
+}
+
+
+
 #chat{
     resize: horizontal;
 }
