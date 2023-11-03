@@ -11,13 +11,13 @@ h1{
 
 
 /*nur die drei Seiten zentriert*/
-.login, .register, .logout {
+/*.login, .register, .logout {
     /*text-align: center; */
-    display: flex;
+    /*display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
+}*/
 
 /*legend layout */
 legend {
