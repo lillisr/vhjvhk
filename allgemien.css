@@ -256,6 +256,11 @@ a:hover{
     display: flex;
     margin-left: 10px;
 } 
+
+.chatlist ul {
+    list-style-type: none;
+}
+
 /*respnsive design*/
 
 @media screen and (max-width: 900px) {
