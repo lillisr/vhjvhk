@@ -10,19 +10,21 @@ window.tokenTOM = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0
 window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAyMjk1MjN9.Jwr1I8pkjh3roG_3uUss3kgcGrays2eepnFzdawNuDA";
 
 
+var chatHistory = new Array;
+
 //chat um messages zu bekommen (list messages)
 
-function listMessages(to, fromToken) { 
+function listMessages(to, fromToken) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             let data = JSON.parse(xmlhttp.responseText);
             console.log(data);
             loadMessages(data);
-        
+
         }
     };
-    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/message/"+ to, true);
+    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/message/" + to, true);
     // Add token, e. g., from Tom
     xmlhttp.setRequestHeader('Authorization', 'Bearer ' + fromToken);
     xmlhttp.send();
@@ -42,17 +44,21 @@ function sendMessages() {
     // Add token, e. g., from Tom
     xmlhttp.setRequestHeader('Authorization', 'Bearer ' + window.tokenTOM);
     // Create request data with message and receiver
+    var chatPartner = getChatpartner();
+    var messageField = document.getElementById("messageField");
+    var textMessage = messageField.value;
     let data = {
-        message: "Hello?!",
-        to: "Jerry"
+        message: textMessage,
+        to: chatPartner
     };
     let jsonString = JSON.stringify(data); // Serialize as JSON
     xmlhttp.send(jsonString); // Send JSON-data to server
-
+    messageField.value = "";
 }
+getChatHeadline();
 
-listMessages("Jerry", window.tokenTOM);
-sendMessages();
+//sendMessages();
+
 
 //um freund zu bekommen TODO als paramenter bei list messages einfügen!!
 function getChatpartner() {
@@ -63,14 +69,22 @@ function getChatpartner() {
     const friendValue = queryParams.get("friend");
     console.log("Friend:", friendValue);
     return friendValue;
-    }
+}
 
-   // getChatpartner();
+// getChatpartner();
 
-    function loadMessages(data){
-        const chatList = document.getElementById("chatMessages");
-           // Iteriere über jedes Nachrichtenobjekt im JSON-Array
-           data.forEach(message => {
+function loadMessages(data) {
+    const chatList = document.getElementById("chatMessages");
+    // Iteriere über jedes Nachrichtenobjekt im JSON-Array
+
+
+
+    //compareHistory with data
+    if (data.length > chatHistory.length) {
+        while (chatList.lastElementChild) {
+            chatList.removeChild(chatList.lastElementChild)
+        }
+        data.forEach(message => {
             // Greife auf die Eigenschaften des Nachrichtenobjekts zu
             const from = message.from;
             const type = message.type;
@@ -85,14 +99,31 @@ function getChatpartner() {
             const listItem = document.createElement("li");
             listItem.innerHTML = `${from}: ${msg}  <span class="time">${formattedTime}</span>`;
             chatList.appendChild(listItem);
-
         });
-       
-        
 
+        chatHistory = data;
     }
 
-   
+
+
+
+
+
+}
+
+function getChatHeadline() {
+    var friend = getChatpartner();
+
+    var headline = document.getElementById("chatPartner");
+    //console.log(headline);
+    headline.innerText = "Chat with " + friend;
+}
+
+window.setInterval(function () {
+    //loadFriends();
+    listMessages(getChatpartner(), window.tokenTOM);
+}, 1000);
+
 /* zeichen string aus json parse
    var jsObj = JSON.parse(data);
    let firstEntry = jsonObj[0];
