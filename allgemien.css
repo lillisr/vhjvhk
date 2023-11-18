@@ -34,14 +34,13 @@ label{
 /*legend layout */
 legend {
     display: block;    
-    padding-left: 2px;
-    padding-right: 2px;
     border: none;
+   background-color: transparent;
 }  
 /*filedset layout*/
 fieldset{
 border:dotted;
-background-color: aliceblue;
+background-color: rgb(250, 250, 250);
 }
 /* color and layout for buttons */
 .coloredButton{
@@ -76,7 +75,7 @@ background-color: aliceblue;
 
 /* for background color */
 .legendFieldset div, .legendFieldset label, .legendFieldset input .legendFielset p {
-    background-color: aliceblue;
+    background-color: rgb(250, 250, 250);
 }
 
 
@@ -257,6 +256,11 @@ a:hover{
     display: flex;
     margin-left: 10px;
 } 
+
+.chatlist ul {
+    list-style-type: none;
+}
+
 /*respnsive design*/
 
 @media screen and (max-width: 900px) {

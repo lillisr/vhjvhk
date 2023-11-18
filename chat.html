@@ -4,8 +4,10 @@
         <title>chat</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="allgemien.css">
+        <script src="chat.js"></script>
     </head>
     <body>
+        <div class="container">
         <form class="chat">
             <h1>Chat with Tom</h1>
             <a href="friends.html" target="_back"> >Back </a> |
@@ -14,9 +16,8 @@
             <hr />
             <div class="chatlist">
                 <div> 
-                    <ul>
-                        <li id="list-item">Tom: Hallo Marvin! <span class="time">19:43</span> </a> </li>
-                        <li id="list-item">Marvin: Hi, Wie geht's? <span class="time">19:57</span> </a></li>
+                    <ul id="chatMessages">
+                        
                     </ul>
                 </div>
             </div>
@@ -24,10 +25,10 @@
             <div class="newMessage">
                 <input class="Message" type="text" placeholder="New Message">
             <div class="sendButton">
-                <button class="Send" type="nachricht">Send</button>
+                <button class="greyButton" type="nachricht">Send</button>
             </div>
-            <!--<input type="text" id="lname" name="lname" value="New Message" style="color:Gray;" font size=" 20">
-            <input type="text" id="lname" name="lname" value="Send" style="background-color: lightgray;"font size=" 5"><br>-->
         </form>
+        </div>
+        
     </body>
 </html>
