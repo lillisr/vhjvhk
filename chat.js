@@ -10,10 +10,12 @@ window.tokenTOM = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0
 window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAyMjk1MjN9.Jwr1I8pkjh3roG_3uUss3kgcGrays2eepnFzdawNuDA";
 
 
-var chatHistory = new Array;
 
-//chat um messages zu bekommen (list messages)
+//get Chat Headline with correct friend
+getChatHeadline();
 
+
+//list messages
 function listMessages(to, fromToken) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -30,8 +32,7 @@ function listMessages(to, fromToken) {
     xmlhttp.send();
 }
 
-//send messages bekommen
-
+//send messages
 function sendMessages() {
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -55,12 +56,9 @@ function sendMessages() {
     xmlhttp.send(jsonString); // Send JSON-data to server
     messageField.value = "";
 }
-getChatHeadline();
-
-//sendMessages();
 
 
-//um freund zu bekommen TODO als paramenter bei list messages einfügen!!
+//get correct Chat partner
 function getChatpartner() {
     const url = new URL(window.location.href);
     // Access the query parameters using searchParams
@@ -71,21 +69,19 @@ function getChatpartner() {
     return friendValue;
 }
 
-// getChatpartner();
+//storage for chat history
+var chatHistory = new Array;
 
 function loadMessages(data) {
     const chatList = document.getElementById("chatMessages");
-    // Iteriere über jedes Nachrichtenobjekt im JSON-Array
 
-
-
-    //compareHistory with data
+    //compareHistory with data, for reloading the messages
     if (data.length > chatHistory.length) {
         while (chatList.lastElementChild) {
             chatList.removeChild(chatList.lastElementChild)
         }
         data.forEach(message => {
-            // Greife auf die Eigenschaften des Nachrichtenobjekts zu
+            // information for correct message form
             const from = message.from;
             const type = message.type;
             const msg = message.msg;
@@ -93,9 +89,10 @@ function loadMessages(data) {
             const time = new Date(message.time);
             const formattedTime = time.toLocaleTimeString();
 
-            // Formatiere und zeige die Daten in der Konsole an
+
             console.log(`${time}`);
 
+            //messages in correct order
             const listItem = document.createElement("li");
             listItem.innerHTML = `${from}: ${msg}  <span class="time">${formattedTime}</span>`;
             chatList.appendChild(listItem);
@@ -119,6 +116,7 @@ function getChatHeadline() {
     headline.innerText = "Chat with " + friend;
 }
 
+//reloading the messages every second
 window.setInterval(function () {
     //loadFriends();
     listMessages(getChatpartner(), window.tokenTOM);
