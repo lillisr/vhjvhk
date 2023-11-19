@@ -4,12 +4,12 @@
         <title>chat</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="allgemien.css">
-        <script src="chat.js"></script>
+        
     </head>
     <body>
         <div class="container">
         <form class="chat">
-            <h1>Chat with Tom</h1>
+            <h1 id="chatPartner"> </h1>
             <a href="friends.html" target="_back"> >Back </a> |
             <a href="profile.html" target="_Profile"> Profile </a> |
             <a href="friends.html" target="RemoveFriend" id="Achtung"> Remove Friend </a><br>
@@ -23,12 +23,13 @@
             </div>
             <hr />
             <div class="newMessage">
-                <input class="Message" type="text" placeholder="New Message">
+                <input class="Message" type="text" placeholder="New Message" id="messageField">
             <div class="sendButton">
-                <button class="greyButton" type="nachricht">Send</button>
+                <input type="button" class="greyButton" onclick="sendMessages()" value="Send">
             </div>
         </form>
         </div>
         
     </body>
+    <script src="chat.js"></script>
 </html>
