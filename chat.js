@@ -126,4 +126,4 @@ window.setInterval(function () {
    var jsObj = JSON.parse(data);
    let firstEntry = jsonObj[0];
    console.log(firstEntry);
-*/
+*/ 
