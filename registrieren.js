@@ -1,8 +1,8 @@
 window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2";
 
 window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectionId;
-window.tokenTom = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMzE3OTI2fQ.2UZULSA09LF6V2U1ytda7mIW8MxDUrPcon-ha6ODRZw;
-window.tokenJerry = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAzMTc5MjZ9.SWYRS4BiIO-uZi07wGuSUuNd_uV-Ub5NE_5yFsrfUJc;
+window.tokenTOM = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMjI5NTIzfQ.15wcKi2kqllvpeAFIAYVa2UlSUxUUgOrt7FaZS9rrlM";
+window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAyMjk1MjN9.Jwr1I8pkjh3roG_3uUss3kgcGrays2eepnFzdawNuDA";
 
 
 function validateForm(){
@@ -13,19 +13,20 @@ function validateForm(){
 
     var isValid = true;
 
-    
-    var xmlhttp = new XMLHttpRequest();
-
     //checks, if user already exists
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4) {
-            if(xmlhttp.status == 204) {
-                console.log("Exists");
-            } else if(xmlhttp.status == 404) {
-                console.log("Does not exist");
+    function checkUser(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4) {
+                if(xmlhttp.status == 204) {
+                    console.log("Exists");
+                } else if(xmlhttp.status == 404) {
+                    console.log("Does not exist");
+                }
             }
-        }
-    };
+        };
+    }
+   
     xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/83f86739-4684-4e80-acec-7f640d5eded2/user/Tom", true);
     xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/83f86739-4684-4e80-acec-7f640d5eded2/user/Jerry", true);
     xmlhttp.send();
@@ -64,5 +65,5 @@ function validateForm(){
         return false;
     }
 
-    
+
 }
