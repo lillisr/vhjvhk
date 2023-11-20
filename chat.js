@@ -1,6 +1,6 @@
 
 //Id hinter URL plazieren
-window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2";
+window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2"; 
 
 //  Basis-URL des Servers
 window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectionId;
