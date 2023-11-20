@@ -24,12 +24,11 @@ function validateForm(){
                     console.log("Does not exist");
                 }
             }
-        };
-    }
-   
-    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/83f86739-4684-4e80-acec-7f640d5eded2/user/Tom", true);
-    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/83f86739-4684-4e80-acec-7f640d5eded2/user/Jerry", true);
-    xmlhttp.send();
+        }
+    };
+    
+xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/34ec8719-858e-43c9-85b5-3c2f391d3bb5/user/Tom", true);
+xmlhttp.send();
     //checks, if username is longer than 3 characters
     if (username.length < 3){
         document.getElementById('uname').classList.add('invalid');
