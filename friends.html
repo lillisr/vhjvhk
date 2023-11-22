@@ -4,6 +4,7 @@
     <title>friends</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
+    <script src="main2.js" defer></script>
 </head>
 
 <body class="friends">
@@ -16,7 +17,7 @@
             </div>
         </div>
         <hr />
-        <div class="friendslist">
+        <div class="friendslist" list="accepted-friends">
             <div>
                 <ul>
                     <li id="list-item"><a href="chat.html?friend=Jerry">Jerry <span class="notifications">3</span> </a> </li>
@@ -35,15 +36,18 @@
                 <p> 1. Friends request from <strong> Track </strong></p>
             </div>
             <div class="request-action-buttons">
-                <button class="greyButton" type="Accept">Accept</button>
-                <button class="greyButton" type="Reject">Reject</button>
+                <button class="greyButton" type="Accept" onclick="loadFriends()">Accept</button>
+                <button class="greyButton" type="Reject" onclick="loadFriends()">Reject</button>
             </div>
         </div>
         <hr />
         <div class="add">
-            <input class="input-addFriend" type="text" placeholder="Add Friend to List">
+            <input class="input-addFriend" type="text" placeholder="Add Friend to List" name="friendRequestName" id="friend-request-name" list="friend-selector">
+            <datalist id="friend-selector"> 
+            
+                </datalist>
             <div class="addButton">
-                <button class="greyButton" type="Add">Add</button>
+                <button class="greyButton" type="Add" onclick="addFriend()" type="button">Add</button>
             </div>
         </div>
 
