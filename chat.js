@@ -13,7 +13,7 @@ window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLC
 
 //get Chat Headline with correct friend
 getChatHeadline();
-
+ 
 
 //list messages
 function listMessages(to, fromToken) {
