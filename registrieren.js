@@ -4,6 +4,23 @@ window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectio
 window.tokenTOM = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMjI5NTIzfQ.15wcKi2kqllvpeAFIAYVa2UlSUxUUgOrt7FaZS9rrlM";
 window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAyMjk1MjN9.Jwr1I8pkjh3roG_3uUss3kgcGrays2eepnFzdawNuDA";
 
+function checkUser(username, password, token){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if(xmlhttp.status == 204) {
+                console.log("Exists");
+            } else if(xmlhttp.status == 404) {
+                console.log("Does not exist");
+            }
+        }
+    }
+}
+
+xmlhttp.open("GET", window.backendUrl + "/user/" + username, true);
+xmlhttp.setRequestHeader("Authorization", "Bearer " + token);
+
+xmlhttp.send();
 
 function validateForm(){
     var username = document.getElementById("uname").value;
@@ -13,22 +30,12 @@ function validateForm(){
 
     var isValid = true;
 
+    checkUser("Tom", "12345678", window.tokenTOM);
+    checkUser("Jerry", "87654321", window.tokenJERRY);
+
+
     //checks, if user already exists
-    function checkUser(){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4) {
-                if(xmlhttp.status == 204) {
-                    console.log("Exists");
-                } else if(xmlhttp.status == 404) {
-                    console.log("Does not exist");
-                }
-            }
-        }
-    };
-    
-xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/34ec8719-858e-43c9-85b5-3c2f391d3bb5/user/Tom", true);
-xmlhttp.send();
+       
     //checks, if username is longer than 3 characters
     if (username.length < 3){
         document.getElementById('uname').classList.add('invalid');
@@ -63,6 +70,4 @@ xmlhttp.send();
     } else{
         return false;
     }
-
-
 }
