@@ -17,14 +17,12 @@
             </div>
         </div>
         <hr />
-        <div class="friendslist" list="accepted-friends">
+        <div class="friendslist"  >
             <div>
-                <ul>
-                    <li id="list-item"><a href="chat.html?friend=Jerry">Jerry <span class="notifications">3</span> </a> </li>
-                    <li id="list-item"><a href="chat.html?friend=Marvin">Marvin <span class="notifications">1</span> </a></li>
-                    <li id="list-item"><a href="chat.html">Tick</a></li>
-                    <li id="list-item"><a href="chat.html">Trick</a></li>
+                <ul  id="accepted-friends">
+                     </div>
                 </ul>
+                
             </div>
         </div>
         <hr />
@@ -32,13 +30,15 @@
         <h2> New Requests</h2>
 
         <div class="request">
-            <div class="request-content">
-                <p> 1. Friends request from <strong> Track </strong></p>
-            </div>
+            <div class="request-content" >
+                <p> Friends request from </p>
+               <ul id="new-requests">
+                <li id="list-item" > </li> </ul>
+                     </div>
             <div class="request-action-buttons">
-                <button class="greyButton" type="Accept" onclick="loadFriends()">Accept</button>
-                <button class="greyButton" type="Reject" onclick="loadFriends()">Reject</button>
-            </div>
+               
+            </div> 
+           
         </div>
         <hr />
         <div class="add">
@@ -49,6 +49,7 @@
             <div class="addButton">
                 <button class="greyButton" type="Add" onclick="addFriend()" type="button">Add</button>
             </div>
+        
         </div>
 
     </div>
