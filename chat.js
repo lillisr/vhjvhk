@@ -1,6 +1,6 @@
 
 //Id hinter URL plazieren
-window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2"; 
+window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2";
 
 //  Basis-URL des Servers
 window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectionId;
@@ -12,7 +12,7 @@ window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLC
 
 
 //get Chat Headline with correct friend
-getChatHeadline();
+getChatHeadline(); 
 
 //list messages
 function listMessages(to, fromToken) {
@@ -55,7 +55,6 @@ function sendMessages() {
     xmlhttp.send(jsonString); // Send JSON-data to server
     messageField.value = "";
 }
-
 
 //get correct Chat partner
 function getChatpartner() {
@@ -101,10 +100,6 @@ function loadMessages(data) {
     }
 
 
-
-
-
-
 }
 
 function getChatHeadline() {
@@ -120,6 +115,7 @@ window.setInterval(function () {
     //loadFriends();
     listMessages(getChatpartner(), window.tokenTOM);
 }, 1000);
+
 
 /* zeichen string aus json parse
    var jsObj = JSON.parse(data);
