@@ -137,6 +137,7 @@ text-decoration: none;
     display: flex;
     align-items: center;
     gap: 10px; 
+   
 }
 
 .input-addFriend {
@@ -279,6 +280,9 @@ a:hover{
 .chatlist ul {
     list-style-type: none;
 }
+
+
+
 
 /*responsive design*/
 
