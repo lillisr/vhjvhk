@@ -191,19 +191,9 @@ text-decoration: none;
 .container .error-input{
     border-color: #e74c3c;
 }
-.container .errorMessage {
-    color: #e74c3c;
-    font-size: 0.75em;
-}
 .container .success-input{
     border-color: #2ecc71;
 }
-.container .successMessage {
-    color: #2ecc71;
-    font-size: 0.75em;
-}
-
-
 
 
 /*profile page*/
