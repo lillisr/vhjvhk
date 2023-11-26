@@ -23,7 +23,7 @@ function listMessages(to, fromToken) {
             console.log(data);
             loadMessages(data);  
  
-        }
+        } 
     };
     xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/message/" + to, true);
     // Add token, e. g., from Tom
