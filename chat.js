@@ -96,7 +96,7 @@ function loadMessages(data) {
             chatList.appendChild(listItem);
         });
 
-        chatHistory = data;
+        chatHistory = data; 
     }
 
 
