@@ -21,8 +21,8 @@ function listMessages(to, fromToken) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             let data = JSON.parse(xmlhttp.responseText);
             console.log(data);
-            loadMessages(data);
-
+            loadMessages(data);  
+ 
         }
     };
     xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/message/" + to, true);

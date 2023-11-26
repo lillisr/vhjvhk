@@ -10,7 +10,7 @@ window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLC
 
 
 //Funktion, um die Datalist mit Benutzernamen zu befüllen
-function populateFriendList() {
+function populateList() {
     const datalist = document.getElementById('friend-selector');
 
     var xmlhttp = new XMLHttpRequest();
@@ -18,66 +18,59 @@ function populateFriendList() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             let data = JSON.parse(xmlhttp.responseText);
             console.log(data);
-
-            const userNames = data.map(user => user.username);
-
+            const userNames = data
             // Benutzernamen zur Datalist hinzufügen
                 userNames.forEach(userName => {
-                    const option = document.createElement('option');
+                    
+                    if ( userName !== "Tom"){
+                        const option = document.createElement('option');
                     option.value = userName;
                     datalist.appendChild(option);
+                    
+                    }
                 });
-
-
         }
     };
-    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/12d3e822-6050-44ef-b265-212b558cff93/user", true);
-    xmlhttp.setRequestHeader('Authorization', 'Bearer '+window.tokenTOM+window.tokenJERRY);
+    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/user", true);
+    xmlhttp.setRequestHeader('Authorization', 'Bearer '+window.tokenTOM);
     xmlhttp.send();
 
-    
 }
 
 // Funktion, um einen neuen Freund hinzuzufügen
 function addFriend() {
     const friendRequestName = document.getElementById('friend-request-name').value;
-
-    // Dummy-Prüfung, ob der Nutzername in der Liste ist (ersetzen Sie dies durch eine Backend-Anfrage)
-    if (friendRequestName && friendRequestName !== 'Tom' ) {
+    
+    //  ob der Nutzername in der Liste ist 
+    if (friendRequestName && friendRequestName !== 'Tom'  ) {    
+        
+                                                   
         // Backend-AJAX-Anfrage, um eine Freundschaftsanfrage zu senden
         sendFriendRequest(friendRequestName);
     } else {
         alert('Ungültiger Benutzername');
     }
+
 }
-
-
-
-
-
+/*
+function deleteFriend(){
+    const friendRequestName = document.getElementById('friend-request-name').value;
+deletefriendanfrage(friendRequestName);
+}
+*/
  // Funktion, um eine Freundschaftsanfrage an das Backend zu senden
  function sendFriendRequest(friendName) {
-    //  const xmlhttp = new XMLHttpRequest();
-    //  xmlhttp.onreadystatechange = function () {
-    //      if (xmlhttp.readyState == 4) {
-    //          if (xmlhttp.status == 204) {
-    //             console.log(`Freundschaftsanfrage an ${friendName} gesendet.`);
-    //          } else {
-    //              console.error(`Fehler beim Senden der Freundschaftsanfrage: ${xmlhttp.status}`);
-    //          }
-    //      }
-    // };
-
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-        console.log("Requested...");
-    }
+    
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 204 ) {
+        loadFriends();
+        console.log("Requested...an ${friendName}");
+}
 };
 
-
-    xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/12d3e822-6050-44ef-b265-212b558cff93/friend", true);
+    xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend", true);
 xmlhttp.setRequestHeader('Content-type', 'application/json');
 xmlhttp.setRequestHeader('Authorization', 'Bearer '+ window.tokenTOM );
 
@@ -87,121 +80,111 @@ let data = {
 let jsonString = JSON.stringify(data);
 xmlhttp.send(jsonString);
  }
-//     // Dummy-URL (ersetzen Sie dies durch die richtige Backend-URL)
-//     const backendUrl = 'https://online-lectures-cs.thi.de/chat/12d3e822-6050-44ef-b265-212b558cff93/friend';
 
-//     xmlhttp.open('POST', backendUrl, true);
-//     xmlhttp.setRequestHeader('Content-type', 'application/json');
-//     xmlhttp.setRequestHeader('Authorization', 'Bearer'+ window.tokenTOM); // Ersetzen Sie YOUR_ACCESS_TOKEN durch das echte Token
-
-//     const data = { username: friendName };
-//     const jsonString = JSON.stringify(data);
-//     xmlhttp.send(jsonString);
-// }
-
-// Datalist bei Seitenladen befüllen
-populateFriendList();
-
-
-
-
-//b2
+ /*delete
+function deletefriendanfrage(friendName) {
+ let xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+        loadFriends();
+        console.log("Removed...");
+    }
+};
+xmlhttp.open("DELETE", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend/tom", true);
+xmlhttp.setRequestHeader('Content-type', 'application/json');
+xmlhttp.setRequestHeader('Authorization', 'Bearer '+ window.tokenTOM);
+xmlhttp.send();
+}
+*/
 
 window.setInterval(function() {
     loadFriends();
     }, 1000);
-
-function loadFriends() {
+    function loadFriends() {
         const xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 let data = JSON.parse(xmlhttp.responseText);
+    
+                const acceptedFriends = data.filter(friend => friend.status === "accepted");
+                const requestedFriends = data.filter(friend => friend.status === "requested");
+                console.log(data);
+                
+                // Aktualisierung der Listen auf der Seite
+                updateacceptedList(acceptedFriends, 'accepted-friends');
+                updaterequestList(requestedFriends, 'new-requests');
 
-                const acceptedFriends = data.filter(friend => friend.status === "Accept");
-            const requestedFriends = data.filter(friend => friend.status === "Request");
+            }
+        };
+    
+        xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend", true);
+        xmlhttp.setRequestHeader('Authorization', 'Bearer ' + window.tokenTOM);
+        xmlhttp.send();
+    }
 
-             // Aktualisierung der Listen auf der Seite
-             updateFriendsList(acceptedFriends, 'friendslist');
-             updateFriendsList(requestedFriends, 'new-requests');
-         }
-     };
+
  
-     xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/full#list-friends", true);
-     xmlhttp.setRequestHeader('Authorization', 'Bearer ' + window.tokenTOM);
-     xmlhttp.send();
- }
- 
- // Funktion zum Aktualisieren der Listen auf der Seite
- function updateFriendsList(friendName, listId) {
-     const list = document.getElementById(listId);
-     list.innerHTML = ''; // Liste leeren, um sie neu zu füllen
- 
-     friends.forEach(friend => {
-         const listItem = document.createElement('li');
-         listItem.textContent = friend.username;
-         list.appendChild(listItem);
-     });
- }
+    function updateacceptedList(friends, listId) {
+        const list = document.getElementById(listId);
+        
+        list.innerHTML = ''; 
+    
+        friends.forEach(friend => {
+            const listItem = document.createElement('li');
+            const a =document.createElement('a');
+            const not = document.createElement('span');
+            
+            a.innerHTML = friend.username;
+            a.setAttribute('href','chat.html?friend='+friend.username);
+            not.innerHTML=(friend.unread);
+            list.appendChild(a);
+            list.appendChild(listItem);
 
+            listItem.appendChild(not);
 
+            
+    });
+    }
 
+    function updaterequestList(friends, listId) {
+        const list = document.getElementById(listId);
+        list.innerHTML = ''; 
+        
+        friends.forEach(friend => {
 
-
-
-
-
-// b.1 
-// //freundesliste
-// const userList = [ "Sarah", "Martha", "Franz"];
-
-// // Funktion zum Befüllen der Datalist
-// function updateDatalist() {
-//     const datalist = document.getElementById("friend-selector");
-//     datalist.innerHTML = "";
-
-//     userList.forEach(username => {
-//         const option = document.createElement("option");
-//         option.value = username;
-//         datalist.appendChild(option);
-//     });
-// }
-// //hinzufügen ienes freundes
-
-// function addFriend() {
-//     const friendRequestName = document.getElementById("friend-request-name").value;
-//     // Prüfen, ob der Nutzername existiert und nicht dem aktuellen Nutzer entspricht
-//     if (userList.includes(friendRequestName) && friendRequestName !== "Tom") {
-//         // Hier AJAX-Aufruf für Freundesanfrage an das Backend durchführen
-//         fetch(`${window.backendUrl}/full#friend-request`, {
-//                 method: 'POST',
-//                 headers: {
-//                    'Authorization': `Bearer ${window.tokenTOM}`,
-//                      'Content-Type': 'application/json',
-//                 },
-//                 body: JSON.stringify({ username: friendRequestName }),
-//                  })
+             
+            const listItem = document.createElement('li');
+            listItem.innerText= friend.username;
        
+            const actionButtonsDiv = document.createElement('div');
+     
+            actionButtonsDiv.className = 'request-action-buttons';
+        
+            const acceptButton = document.createElement('button');
+            
+                acceptButton.className = 'greyButton';
+             acceptButton.type = 'button';
+             acceptButton.type="Accept";
+            acceptButton.innerText = 'Accept';
+            actionButtonsDiv.appendChild(acceptButton);
+            
 
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error(`HTTP error! Status: ${response.status}`);
-//             }
-//             return response.json();
-//         })
-//         .then(data => {
-//             // Verarbeitung der Antwort vom Server
-//             console.log('Erfolgreich:', data);
-         
-//         // Nach erfolgreichem Hinzufügen die Datalist aktualisieren
-//         updateDatalist()
-//         })
-//         .catch(error => {
-//             // Fehlerbehandlung
-//             console.error('Fehler:', error);
-//         });
+            const rejectButton = document.createElement('button');
+            rejectButton.className = 'greyButton';
+            rejectButton.innerText = 'Reject';
+            rejectButton.type='Reject';
+            rejectButton.type = 'button';
+            actionButtonsDiv.appendChild(rejectButton);
 
+            listItem.appendChild(actionButtonsDiv);
 
-//     } else {
-//         alert("Ungültiger Nutzername oder bereits Freund.");
-//     }
-// }
+    
+        list.appendChild(listItem);
+      
+       
+    });
+    
+}
+
+    populateList();
+
