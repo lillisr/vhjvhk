@@ -32,7 +32,7 @@ function register(){
                     nameInput.classList.add("error-input");
                 } else if(xmlhttp.status == 404) {
                     nameInput.classList.add("success-input");
-                    if(passwordValue.length >= 8 || passwordValue === password2Value){
+                    if(passwordValue.length >= 8 && passwordValue === password2Value){
                         window.location.href = 'friends.html';
                     }
                 }
