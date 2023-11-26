@@ -24,17 +24,16 @@ function register(){
 
     if(nameValue.length < 3){
         nameInput.classList.add("error-input");
-    }else {
+    } else {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4) {
                 if(xmlhttp.status == 204) {
                     nameInput.classList.add("error-input");
-                }else if(xmlhttp.status == 404) {
+                } else if(xmlhttp.status == 404) {
                     nameInput.classList.add("success-input");
                     if(passwordValue.length >= 8 && passwordValue === password2Value){
-                        var a = document.getElementById("button");
-                        a.setAttribute("href", 'friends.html');                    
+                        window.location.href = 'friends.html';
                     }
                 }
             }
