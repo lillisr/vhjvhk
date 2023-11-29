@@ -66,7 +66,7 @@ xmlhttp.onreadystatechange = function () {
     
     if (xmlhttp.readyState == 4 && xmlhttp.status == 204 ) {
         loadFriends();
-        console.log("Requested...an ${friendName}");
+
 }
 };
 
@@ -100,6 +100,7 @@ xmlhttp.send();
 window.setInterval(function() {
     loadFriends();
     }, 1000);
+
     function loadFriends() {
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
@@ -139,8 +140,7 @@ window.setInterval(function() {
             not.innerHTML=(friend.unread);
             list.appendChild(a);
             list.appendChild(listItem);
-
-            listItem.appendChild(not);
+            a.appendChild(not);
 
             
     });
