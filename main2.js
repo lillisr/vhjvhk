@@ -139,8 +139,7 @@ window.setInterval(function() {
             not.innerHTML=(friend.unread);
             list.appendChild(a);
             list.appendChild(listItem);
-
-            listItem.appendChild(not);
+            a.appendChild(not);
 
             
     });
