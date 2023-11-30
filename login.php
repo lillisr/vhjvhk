@@ -25,8 +25,8 @@
                     <input type="password" id="password" name="password" placeholder="Password" required><br><br>
                 </div>
                 <div class="submit">
-                    <button type="submit" formaction="register.html" class="greyButton" formnovalidate>Register</button>
-                    <button type="submit" formaction="friends.html" class="coloredButton">Login</button>
+                    <button type="submit" formaction="register.php" class="greyButton" formnovalidate>Register</button>
+                    <button type="submit" formaction="friends.php" class="coloredButton">Login</button>
                 </div>
             </fieldset>
         </form>
