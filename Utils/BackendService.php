@@ -137,7 +137,7 @@ class BackendService{
             $users = HttpClient::get($this->link . "/user", $_SESSION["chat_token"]);
             return $users;
         }catch (\Exception $e){
-            error_log($e);
+            error_log($e); 
         }
         return false;
     }
