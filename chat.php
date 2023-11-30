@@ -1,3 +1,10 @@
+<?php
+require("start.php");
+error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+ini_set ('display_errors', 1);
+?>
+
+
 <!doctype html>
 <html>
     <head>
@@ -5,7 +12,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="allgemien.css">
         
-    </head>
+    </head> 
     <body>
         <div class="container">
         <form class="chat">
