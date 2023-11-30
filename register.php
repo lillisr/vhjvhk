@@ -24,9 +24,9 @@
                             <input type="password" class="error-input" class="success-input" id="cPw" name="cPw" placeholder="Confirm Password" required><br><br>
                             </div>
                             <p></p>
-                            <input type="button" value="Cancel" onclick="window.location.href='login.html'" class="greyButton"> </button>
+                            <input type="button" value="Cancel" onclick="window.location.href='login.php'" class="greyButton"> </button>
 
-                             <form action="friends.html" onclick="return register()"></form>
+                             <form action="friends.php" onclick="return register()"></form>
                             <input type="submit" value="Create Account" id="button" onclick="register()" class="coloredButton"></button>
                         </fieldset>
                     </form>

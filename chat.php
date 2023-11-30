@@ -10,9 +10,9 @@
         <div class="container">
         <form class="chat">
             <h1 id="chatPartner"> </h1>
-            <a href="friends.html" target="_back"> >Back </a> |
-            <a href="profile.html" target="_Profile"> Profile </a> |
-            <a href="friends.html" target="RemoveFriend" id="Achtung"> Remove Friend </a><br>
+            <a href="friends.php" target="_back"> >Back </a> |
+            <a href="profile.php" target="_Profile"> Profile </a> |
+            <a href="friends.php" target="RemoveFriend" id="Achtung"> Remove Friend </a><br>
             <hr />
             <div class="chatlist">
                 <div> 
