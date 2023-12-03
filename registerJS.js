@@ -24,7 +24,7 @@ function register(){
 
     if(nameValue.length < 3){
         nameInput.classList.add("error-input");
-    } else {
+    } else { 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4) {

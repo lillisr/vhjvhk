@@ -1,3 +1,10 @@
+<?php
+require("start.php");
+error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+ini_set ('display_errors', 1);
+?>
+
+
 <html>
 
 <head>
@@ -12,7 +19,7 @@
         <div class="root">
             <div class="col-12">
                 <h1> Friends</h1>
-                <p><a href="logout.html" class="friends-links"> &ltLogout</a> | <a href="Aufgabe 1-3_new.html"
+                <p><a href="logout.php" class="friends-links"> &ltLogout</a> | <a href="Aufgabe 1-3_new.php"
                         class="friends-links">Settings</a> </p>
             </div>
         </div>

@@ -1,3 +1,9 @@
+<?php
+require("start.php");
+error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+ini_set ('display_errors', 1);
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -18,15 +24,15 @@
                             <input class="error-input" class="success-input" type="text" id="uname" name="uname" placeholder="Username" required><br><br>
                                             
                             <label for="pw">Password:</label>
-                            <input type="text" class="error-input" class="success-input" id="pw" name="pw" placeholder="Password" required><br><br>
+                            <input type="password" class="error-input" class="success-input" id="pw" name="pw" placeholder="Password" required><br><br>
                                             
                             <label for="cPw">Confirm Password:</label>
-                            <input type="text" class="error-input" class="success-input" id="cPw" name="cPw" placeholder="Confirm Password" required><br><br>
+                            <input type="password" class="error-input" class="success-input" id="cPw" name="cPw" placeholder="Confirm Password" required><br><br>
                             </div>
                             <p></p>
-                            <input type="button" value="Cancel" onclick="window.location.href='login.html'" class="greyButton"> </button>
+                            <input type="button" value="Cancel" onclick="window.location.href='login.php'" class="greyButton"> </button>
 
-                             <form action="friends.html" onclick="return register()"></form>
+                             <form action="friends.php" onclick="return register()"></form>
                             <input type="submit" value="Create Account" id="button" onclick="register()" class="coloredButton"></button>
                         </fieldset>
         </form>

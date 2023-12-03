@@ -1,3 +1,10 @@
+<?php
+require("start.php");
+error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+ini_set ('display_errors', 1);
+?>
+
+
 <!doctype html>
 <html>
     <head>
@@ -5,14 +12,14 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="allgemien.css">
         
-    </head>
+    </head> 
     <body>
         <div class="container">
         <form class="chat">
             <h1 id="chatPartner"> </h1>
-            <a href="friends.html" target="_back"> >Back </a> |
-            <a href="profile.html" target="_Profile"> Profile </a> |
-            <a href="friends.html" target="RemoveFriend" id="Achtung"> Remove Friend </a><br>
+            <a href="friends.php" target="_back"> >Back </a> |
+            <a href="profile.php" target="_Profile"> Profile </a> |
+            <a href="friends.php" target="RemoveFriend" id="Achtung"> Remove Friend </a><br>
             <hr />
             <div class="chatlist">
                 <div> 
