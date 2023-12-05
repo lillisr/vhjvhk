@@ -35,7 +35,7 @@ ini_set ('display_errors', 1);
                              <form action="friends.php" onclick="return register()"></form>
                             <input type="submit" value="Create Account" id="button" onclick="register()" class="coloredButton"></button>
                         </fieldset>
-                    </form>
+        </form>
         </div>
         <script src="registerJS.js"></script>
     </body>
