@@ -3,20 +3,19 @@ namespace Model;
 
 use JsonSerializable;
 
-class User implements JsonSerializable
+class Friend implements JsonSerializable
 {
     // ...
     public function jsonSerialize()
     {
         return get_object_vars($this);
     }
-
     //
     private $username;
     private $status;
 
     public function __construct($username = null){
-        //initialisierung über $this-> default 0??
+        //initialisierung über $this-> 
         $this->username = $username;
         $this->status = null;
 
@@ -37,13 +36,9 @@ class User implements JsonSerializable
     public function setDismissed() {
         $this->status = 'dismissed';
     }
-
-   
-
-
     //statische Methode fromJson
     public static function fromJson($data){
-        $friend = new Fiend();
+        $friend = new Friend();
         foreach($data as $key => $value){
             $friend->{$key} = $value;
         }
