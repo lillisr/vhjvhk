@@ -8,7 +8,7 @@ var_dump($service->login("test", "87654321"));
 //problem hier: man muss php array übergeben
 var_dump($service->saveUser("Test123"));
 var_dump($service->loadMessages("Test123"));
-var_dump($service->loadFriends());
+var_dump($service->loadFriends()); 
 var_dump($service->loadUsers());
 var_dump($service->sendMessage("Test123"));
 var_dump($service->friendRequest("Test123"));
