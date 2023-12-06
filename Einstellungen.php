@@ -18,7 +18,7 @@ if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
 // Laden Sie den Benutzer aus der Session
 if(isset($_SESSION["user"]) ){
 	$loggedInUser = $_SESSION["user"];
-    
+
 }
 
 
@@ -70,32 +70,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <h1 class="headline"> Profile Settings </h1>
         <fieldset class="legendFieldset">
-
+            <!-- Ab hier sachen für php -->
+            <form action="Einstellungen.php" method="post">
             <legend> Base Data </legend>
 
             <div class="FN">
                 <label for="FirstName">First Name</label> 
-                <input id=weite placeholder="Your Name"><br>
+                <input type="text" name="FirstName" id=weite placeholder="Your Name"><br>
             </div>
             <div class="LN"> 
                 <label for="LastName">Last Name</label> 
-                <input id=weite placeholder="Your Surname"><br>
+                <input type="text" name="LastName" id=weite placeholder="Your Surname"><br>
             </div>
             <div class="T"><label for="CoffeeorTea">Coffee or Tea?</label> 
-                <select id=weite>
+                <select type="action" name=CoffeeOrTea id=weite> <!--was ist select für ein type??? -->
                     <option> Tea</option>
                     <option> Coffee</option>
                 </select></div>
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Tell something about you </legend>
-            <label for=textarea ><Textarea placeholder="Leave a comment here"> </Textarea></label> <br>
+            <label type="text" name="TellSomething" for=textarea ><Textarea placeholder="Leave a comment here"> </Textarea></label> <br>
 
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Prefered Chat Layout </legend>
-            <label><input type=radio name="rd">UserName and Message in one line</label><br>
-            <label> <input type=radio name="rd">Username and Message in seperate lines</label><br>
+            <label><input type="radio" name="rd">UserName and Message in one line</label><br>
+            <label> <input type="radio" name="rd">Username and Message in seperate lines</label><br>
         </fieldset> <br>
         <form> 
              <button  type="submit" formaction="friends.html" class="greyButton" >Cancel</button>

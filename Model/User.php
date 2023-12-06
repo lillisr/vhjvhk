@@ -11,6 +11,10 @@ class User implements JsonSerializable
     private $firstName;
     private $lastName;
     private $coffeeOrTea;
+    private $TellSomething;
+    
+
+
 
     //getter für diese Attribute
 
@@ -36,7 +40,7 @@ class User implements JsonSerializable
 
     public function setLastName($lastname)
     {
-        $this->lastName = $lastName;
+        $this->lastName = $lastname;
     }
     public function setCoffeeOrTea($coffeeOrTea)
     {
