@@ -10,10 +10,16 @@ if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
     exit();
 } // woher kommt $_SESSION -> In Backend service klasse definiert in Methode login
 
-// Laden Sie den Benutzer aus der Session
-$loggedInUser = $_SESSION['user'];
+
+
+
 
 //me 
+// Laden Sie den Benutzer aus der Session
+if(isset($_SESSION["user"]) ){
+	$loggedInUser = $_SESSION["user"];
+    
+}
 
 
 
