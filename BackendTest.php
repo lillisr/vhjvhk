@@ -3,7 +3,7 @@ require("start.php");
 $service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
 /*var_dump($service->test());
 var_dump($service->register("Test123", "Test456"));*/
-var_dump($service->login("Jerry", "87654321"));
+var_dump($service->login("test", "87654321"));
 /*var_dump($service->loadUser("Test123"));
 //problem hier: man muss php array übergeben
 var_dump($service->saveUser("Test123"));
