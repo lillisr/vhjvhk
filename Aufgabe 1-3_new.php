@@ -2,6 +2,53 @@
 require("start.php");
 error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 ini_set ('display_errors', 1);
+
+//Teilaufgabe i
+
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+} // woher kommt $_SESSION -> In Backend service klasse definiert in Methode login
+
+// Laden Sie den Benutzer aus der Session
+$loggedInUser = $_SESSION['user'];
+
+//me 
+
+
+
+/*
+
+// Verarbeiten Sie das Formular nur, wenn Daten übermittelt wurden
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Laden Sie die Eingaben aus dem Formular
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $coffeeOrTea = $_POST['coffeeOrTea'];
+    $aboutMe = $_POST['aboutMe'];
+    $chatLayout = $_POST['chatLayout'];
+
+    // Aktualisieren Sie die Benutzerdaten
+    $loggedInUser->setFirstName($firstName);
+    $loggedInUser->setLastName($lastName);
+    $loggedInUser->setCoffeeOrTea($coffeeOrTea);
+    $loggedInUser->setAboutMe($aboutMe);
+    $loggedInUser->setChatLayout($chatLayout);
+
+    // Speichern Sie den aktualisierten Benutzer im Backend
+    $backendService = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
+    
+    if ($backendService->saveUser($loggedInUser)) {
+        // Erfolgreich gespeichert
+        echo "Einstellungen erfolgreich gespeichert!";
+    } else {
+        // Fehler beim Speichern
+        echo "Fehler beim Speichern der Einstellungen!";
+    }
+}
+
+*/
+
 ?>
 
 <!DOCTYPE html>
