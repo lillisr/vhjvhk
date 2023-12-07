@@ -22,17 +22,21 @@ if(isset($_SESSION["user"]) ){
 } 
 
 // Verarbeiten Sie das Formular nur, wenn Daten übermittelt wurden
-if (isset($_GET['action']) && $_GET['action'] == 'action'){ // nur ausführen wenn fomular abgesendet wurde
+if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen wenn fomular abgesendet wurde
         //eingene überprüfung
     
     // Laden Sie die Eingaben aus dem Formular
-    $firstName = $_POST["firstName"];
-    $lastName = $_POST['lastName'];
-    $coffeeOrTea = $_POST['coffeeOrTea'];
+    $firstName = $_POST["FirstName"];
+    $lastName = $_POST['LastName'];
+    $coffeeOrTea = $_POST['CoffeeOrTea'];
     $TellSomething = $_POST['TellSomething'];
     $rd = $_POST['rd'];
+
+    var_dump($_POST);
     
-    var_dump($service->loadUsers());
+    //var_dump($service->loadUsers());
+    var_dump($loggedInUser);
+    var_dump($firstName);
 
     // Aktualisieren Sie die Benutzerdaten
     $loggedInUser->setFirstName($firstName);
@@ -42,14 +46,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'action'){ // nur ausführen we
     $loggedInUser->setrd($rd);
 
 
-    
-
-
     // Speichern Sie den aktualisierten Benutzer im Backend
     $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
     
-    if ($service->saveUser($loggedInUser)) {
+    if ($service->saveUser($loggedInUser)) {    //ist das so richtig?
         // Erfolgreich gespeichert
+
         echo "Einstellungen erfolgreich gespeichert!";
     } else {
         // Fehler beim Speichern
@@ -92,7 +94,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'action'){ // nur ausführen we
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Tell something about you </legend>
-            <label type="text" name="TellSomething" for=textarea ><Textarea placeholder="Leave a comment here"> </Textarea></label> <br>
+            <label  for=textarea ><Textarea name="TellSomething"  placeholder="Leave a comment here"> </Textarea></label> <br>
 
         </fieldset>
         <fieldset class="legendFieldset">
@@ -101,8 +103,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'action'){ // nur ausführen we
             <label> <input type="radio" name="rd">Username and Message in seperate lines</label><br>
         </fieldset> <br>
         
-             <button  type="submit" formaction="friends.php" class="greyButton" >Cancel</button>
-             <button type="submit" value="senden" class="coloredButton"> Save </button></div></br>
+             <button   formaction="friends.php" class="greyButton" >Cancel</button>
+             <button type="submit" value="senden" name="action"class="coloredButton"> Save </button></div></br>
 </form>
 </div>
     </body>

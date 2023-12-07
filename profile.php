@@ -11,24 +11,24 @@ if(!isset($_SESSION['user']) || empty($_SESSION['user'])){
 }
 
 // Laden des Benutzers basierend auf dem im Query-Parameter vorgegebenen Namen// muss bei chat gemacht werden?
-$loadedUser = $_SESSION["user"];
+$loadedUser = $_SESSION["user"];    //ist das so richtig?
 
 if (isset($_GET['username']) && !empty($_GET['username'])) {
     $username = $_GET['username'];
 
     // Laden des Benutzers über den BackendService
-    $Service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
-    $loadedUser = $Service->loadUser($username);
+    $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
+    $loadedUser = $service->loadUser($username);
 
     // Überprüfen, ob der Benutzer geladen wurde
-    if (!$loadedUser) {
+ /*   if (!$loadedUser) {
         header("Location: friends.php");
         die();
     }
 } else {
     // Weiterleitung, wenn kein Nutzer angegeben ist
     header("Location: friends.php");
-    die();
+    die(); */
 }
 
 

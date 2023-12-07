@@ -49,9 +49,9 @@ class User implements JsonSerializable
         $this->firstName = $firstName;
     }
 
-    public function setLastName($lastname)
+    public function setLastName($lastName)
     {
-        $this->lastName = $lastname;
+        $this->lastName = $lastName;
     }
     public function setCoffeeOrTea($coffeeOrTea)
     {
