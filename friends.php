@@ -19,7 +19,7 @@ ini_set ('display_errors', 1);
         <div class="root">
             <div class="col-12">
                 <h1> Friends</h1>
-                <p><a href="logout.php" class="friends-links"> &ltLogout</a> | <a href="Aufgabe 1-3_new.php"
+                <p><a href="logout.php" class="friends-links"> &ltLogout</a> | <a href="Einstellungen.php"
                         class="friends-links">Settings</a> </p>
             </div>
         </div>

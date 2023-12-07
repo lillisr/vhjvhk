@@ -136,7 +136,7 @@ window.setInterval(function() {
             const not = document.createElement('span');
             
             a.innerHTML = friend.username;
-            a.setAttribute('href','chat.html?friend='+friend.username);
+            a.setAttribute('href','chat.php?friend='+friend.username);
             not.innerHTML=(friend.unread);
             list.appendChild(a);
             list.appendChild(listItem);

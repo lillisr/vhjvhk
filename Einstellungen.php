@@ -8,10 +8,10 @@ ini_set ('display_errors', 1);
 
 
 // nutzer wegleietn wenn dieser unbekannt ist
-//if(isset($_SESSION["user"]) || $_SESSION["user"]){
-	//header("Location:login.php");
-	//die();
-//}
+if(!isset($_SESSION['user']) || empty($_SESSION['user'])){
+	header("Location:login.php");
+	die();
+}
 
 
 //me 
@@ -19,20 +19,20 @@ ini_set ('display_errors', 1);
 if(isset($_SESSION["user"]) ){
 	$loggedInUser = $_SESSION["user"];
 
-}
+} 
 
 // Verarbeiten Sie das Formular nur, wenn Daten übermittelt wurden
-if ($_SERVER["REQUEST_METHOD"] === "POST"){ // nur ausführen wenn fomular abgesendet wurde
+if (isset($_GET['action']) && $_GET['action'] == 'action'){ // nur ausführen wenn fomular abgesendet wurde
         //eingene überprüfung
-    echo "Formular wurde abgesendet.<br>";
-    echo "POST-Daten: <pre>" . print_r($_POST, true) . "</pre>";
+    
     // Laden Sie die Eingaben aus dem Formular
     $firstName = $_POST["firstName"];
     $lastName = $_POST['lastName'];
     $coffeeOrTea = $_POST['coffeeOrTea'];
     $TellSomething = $_POST['TellSomething'];
     $rd = $_POST['rd'];
-    empty($_POST['test']);
+    
+    var_dump($service->loadUsers());
 
     // Aktualisieren Sie die Benutzerdaten
     $loggedInUser->setFirstName($firstName);
@@ -42,11 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){ // nur ausführen wenn fomular abges
     $loggedInUser->setrd($rd);
 
 
+    
+
 
     // Speichern Sie den aktualisierten Benutzer im Backend
-    $backendService = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
+    $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
     
-    if ($backendService->saveUser($loggedInUser)) {
+    if ($service->saveUser($loggedInUser)) {
         // Erfolgreich gespeichert
         echo "Einstellungen erfolgreich gespeichert!";
     } else {
@@ -54,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){ // nur ausführen wenn fomular abges
         echo "Fehler beim Speichern der Einstellungen!";
     }
 
-}
+} 
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){ // nur ausführen wenn fomular abges
 
             <div class="FN">
                 <label for="FirstName">First Name</label> 
-                <input type="text" name="FirstName" id=weite  placeholder="Your Name"><br>
+                <input type="text" name="FirstName" id=weite  placeholder="Your Name"  ><br>
             </div>
             <div class="LN"> 
                 <label for="LastName">Last Name</label> 
@@ -99,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){ // nur ausführen wenn fomular abges
             <label> <input type="radio" name="rd">Username and Message in seperate lines</label><br>
         </fieldset> <br>
         
-             <button  type="submit" formaction="friends.html" class="greyButton" >Cancel</button>
+             <button  type="submit" formaction="friends.php" class="greyButton" >Cancel</button>
              <button type="submit" value="senden" class="coloredButton"> Save </button></div></br>
 </form>
 </div>
