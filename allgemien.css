@@ -131,6 +131,7 @@ text-decoration: none;
 .request {
     display: flex;
     justify-content: space-between;
+    
 } 
 
 .request-action-buttons {

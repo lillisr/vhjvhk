@@ -6,10 +6,10 @@ var_dump($service->register("Test123", "Test456"));*/
 var_dump($service->login("Jerry", "87654321"));
 /*var_dump($service->loadUser("Test123"));
 //problem hier: man muss php array übergeben
-var_dump($service->saveUser("Test123"));
-var_dump($service->loadMessages("Test123"));
+//var_dump($service->saveUser("Test123"));
+//var_dump($service->loadMessages("Tom"));
 var_dump($service->loadFriends()); 
-var_dump($service->loadUsers());
+/*var_dump($service->loadUsers());
 var_dump($service->sendMessage("Test123"));
 var_dump($service->friendRequest("Test123"));
 var_dump($service->friendAccept("Test123"));
