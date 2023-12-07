@@ -3,12 +3,16 @@ require("start.php");
 error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 ini_set ('display_errors', 1);
 
+
 //Teilaufgabe i
 
-if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
-} // woher kommt $_SESSION -> In Backend service klasse definiert in Methode login
+//tip
+
+
+//if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+  //  header('Location: login.php');
+  //  exit();
+//} // woher kommt $_SESSION -> In Backend service klasse definiert in Methode login
 
 
 
@@ -16,10 +20,10 @@ if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
 
 //me 
 // Laden Sie den Benutzer aus der Session
-if(isset($_SESSION["user"]) ){
-	$loggedInUser = $_SESSION["user"];
+//if(isset($_SESSION["user"]) ){
+	//$loggedInUser = $_SESSION["user"];
 
-}
+//}
 
 
 
@@ -98,10 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label><input type="radio" name="rd">UserName and Message in one line</label><br>
             <label> <input type="radio" name="rd">Username and Message in seperate lines</label><br>
         </fieldset> <br>
-        <form> 
+        
              <button  type="submit" formaction="friends.html" class="greyButton" >Cancel</button>
              <button class="coloredButton"> Save </button></div></br>
-        </form>
+        
 </div>
     </body>
     </html>
