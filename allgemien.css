@@ -131,12 +131,15 @@ text-decoration: none;
 .request {
     display: flex;
     justify-content: space-between;
+    
 } 
 
 .request-action-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
+    
+
 }
 
 .input-addFriend {

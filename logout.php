@@ -1,3 +1,12 @@
+<?php
+require("start.php");
+//clear Session variable
+session_unset();
+
+error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+ini_set ('display_errors', 1);
+?>
+
 <html>
 
 <head>
@@ -11,7 +20,7 @@
         <img src="logout.png" id="image">
         <h1> Logged out </h1>
         <p> See u!</p>
-        <p><a href="login.html"> Login again </a></p>
+        <p><a href="login.php"> Login again </a></p>
     </div>
 </body>
 

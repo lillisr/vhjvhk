@@ -107,7 +107,7 @@ function getChatHeadline() {
 
     var headline = document.getElementById("chatPartner");
     //console.log(headline);
-    headline.innerText = "Chat with " + friend;
+    headline.innerText = "Chat with " + friend; 
 }
 
 //reloading the messages every second

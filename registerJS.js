@@ -24,7 +24,7 @@ function register(){
 
     if(nameValue.length < 3){
         nameInput.classList.add("error-input");
-    } else {
+    } else { 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4) {
@@ -44,12 +44,10 @@ function register(){
     }
 }
 function Toggle() {
-    let temp = document.getElementById("typepass");
-     
-    if (temp.type === "password") {
-        temp.type = "text";
+    var x = document.getElementById("toggle");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
     }
-    else {
-        temp.type = "password";
-    }
-}
+  }
