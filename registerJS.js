@@ -43,3 +43,11 @@ function register(){
         nameInput.classList.remove('error-input', 'success-input');
     }
 }
+function Toggle() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }

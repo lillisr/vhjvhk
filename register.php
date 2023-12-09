@@ -29,6 +29,7 @@ ini_set ('display_errors', 1);
                             <label for="cPw">Confirm Password:</label>
                             <input type="password" class="error-input" class="success-input" id="cPw" name="cPw" placeholder="Confirm Password" required><br><br>
                             </div>
+                            <input type="checkbox" onclick="Toggle()">
                             <p></p>
                             <input type="button" value="Cancel" onclick="window.location.href='login.php'" class="greyButton"> </button>
 
