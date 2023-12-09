@@ -5,6 +5,68 @@ use JsonSerializable;
 
 class User implements JsonSerializable
 {
+
+    // Teilaufgabe i:
+
+    private $firstName;
+    private $lastName;
+    private $coffeeOrTea;
+    private $TellSomething;
+
+    private $rd;
+
+
+
+
+    //getter für diese Attribute
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+    public function getLasttName()
+    {
+        return $this->lastName;
+    }
+    public function getCoffeeorTea()
+    {
+        return $this->coffeeOrTea;
+    }
+
+    public function getTellSomething()
+    {
+        return $this->TellSomething;
+    }
+    public function getrd()
+    {
+        return $this->rd;
+    }
+
+    //setter für diese atribute
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+    public function setCoffeeOrTea($coffeeOrTea)
+    {
+        $this->coffeeOrTea = $coffeeOrTea;
+    }
+    public function setTellSomething($TellSomething)
+    {
+        $this->TellSomething= $TellSomething;
+    }
+    public function setrd($rd)
+    {
+        $this->rd = $rd;
+    }
+
+// ende Teilaufgabe i
     // ...
     public function jsonSerialize()
     {
