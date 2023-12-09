@@ -7,6 +7,7 @@
     </head>
 
     <body> 
+    <script src="registerJS.js"></script>
         <div class="container">
         <img src="user.png" id="image" height="100" width="100">
         <h1>Register yourself</h1>
@@ -16,6 +17,7 @@
                         <div class="formControl">
                             <label for="uname">Username:</label>
                             <input class="error-input" class="success-input" type="text" id="uname" name="uname" placeholder="Username" required><br><br>
+                            
                                             
                             <label for="pw">Password:</label>
                             <input type="text" class="error-input" class="success-input" id="pw" name="pw" placeholder="Password" required><br><br>
@@ -23,6 +25,9 @@
                             <label for="cPw">Confirm Password:</label>
                             <input type="text" class="error-input" class="success-input" id="cPw" name="cPw" placeholder="Confirm Password" required><br><br>
                             </div>
+                            <input type="checkbox" onclick="Toggle()">
+                            <label for="pw">Toggle Password</label>
+
                             <p></p>
                             <input type="button" value="Cancel" onclick="window.location.href='login.html'" class="greyButton"> </button>
 
@@ -31,6 +36,5 @@
                         </fieldset>
                     </form>
         </div>
-        <script src="registerJS.js"></script>
     </body>
 </html>
