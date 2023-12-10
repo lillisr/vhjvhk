@@ -198,6 +198,9 @@ text-decoration: none;
 .container .success-input{
     border-color: #2ecc71;
 }
+.container .errorMessage{
+    color: red;
+}
 
 
 /*profile page*/

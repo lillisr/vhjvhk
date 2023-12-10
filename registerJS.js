@@ -10,6 +10,8 @@ passwordInput.classList.remove('error-input', 'success-input');
 password2Input.classList.remove('error-input', 'success-input');
 
 function register(){
+    var x = document.getElementById("register");
+
     let nameValue = nameInput.value;
     let passwordValue = passwordInput.value;
     let password2Value = password2Input.value;
@@ -46,8 +48,6 @@ function register(){
 function Toggle() {
     var x = document.getElementById("toggle");
     if (x.type === "password") {
-      x.type = "text";
-    } else {
       x.type = "password";
     }
   }

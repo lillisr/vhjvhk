@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 <html>
 
-=======
 <?php
 require("start.php");
 
@@ -34,14 +32,11 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
 
 <!DOCTYPE html>
 <html>
->>>>>>> d84dd88ca4ff47462e93ca9a422e466c9fe2e042
 <head>
     <title>login</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
-<<<<<<< HEAD
     
-=======
 </head>
 
 <body>
@@ -72,7 +67,6 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
                 <input type="submit" name="submit" value="Login" formaction="friends.php" class="coloredButton">
                 <button type="submit" formaction="register.php" class="greyButton" formnovalidate>Register</button>
 
->>>>>>> d84dd88ca4ff47462e93ca9a422e466c9fe2e042
 </head>
 
 <body>
@@ -80,18 +74,15 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
         <img src="chat.png" width="100" height="100" id="image" class="login-pic">
         <h1>Please sign in</h1>
 
-<<<<<<< HEAD
         <form>
             <fieldset class="legendFieldset">
                 <legend>Login</legend>
                 
-=======
 
         <form action="login.php" method="post">
             <fieldset class="legendFieldset">
                 <legend>Login</legend>
 
->>>>>>> d84dd88ca4ff47462e93ca9a422e466c9fe2e042
                 <div class="username">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" placeholder="Username" required><br><br>
@@ -101,21 +92,18 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
                     <input type="password" id="password" name="password" placeholder="Password" required><br><br>
                 </div>
                 <div class="submit">
-<<<<<<< HEAD
                     <button type="submit" formaction="register.html" class="greyButton" formnovalidate>Register</button>
                     <button type="submit" formaction="friends.html" class="coloredButton">Login</button>
                 </div>
             </fieldset>
         </form>
     </div>
-=======
                     <button type="submit" formaction="register.php" class="greyButton" formnovalidate>Register</button>
                     <button type="submit" name="action" value="login" class="coloredButton">Login</button>
                 </div>
             </fieldset>
         </div>
     </form>
->>>>>>> d84dd88ca4ff47462e93ca9a422e466c9fe2e042
 </body>
 
 </html>
