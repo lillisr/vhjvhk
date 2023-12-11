@@ -3,7 +3,7 @@ namespace Model;
 
 use JsonSerializable;
 
-class User implements JsonSerializable
+class User implements \JsonSerializable
 {
 
     // Teilaufgabe i:

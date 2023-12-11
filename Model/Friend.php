@@ -3,7 +3,7 @@ namespace Model;
 
 use JsonSerializable;
 
-class Friend implements JsonSerializable
+class Friend implements \JsonSerializable
 {
     // ...
     public function jsonSerialize()

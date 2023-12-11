@@ -201,6 +201,9 @@ text-decoration: none;
 .container .errorMessage{
     color: red;
 }
+.container .error {
+    color: red;
+}
 
 
 /*profile page*/
