@@ -2,44 +2,35 @@
 require("start.php");
 require_once ("BackendService.php");
 
-/*if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["username"]) && isset($_POST['password']) && isset($_POST['confirmPassword'])){
-*/
+
         $username = $_POST["username"];
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
 
-        $errors = array();
-
         if(empty($username) || empty($password) || empty($confirmPassword)){
-            $errors[] = 'field is empty!';
+            echo 'field is empty!';
         }
         if(strlen($username) < 3) {
-            $errors[] =  'Username must be at least 3 characters!';
+            echo 'Username must be at least 3 characters!';
         }
         if(strlen($password) < 8) {
-            $errors[] =  'Username must be at least 8 characters!';
+            echo 'Username must be at least 8 characters!';
         }
         if($password !== $confirmPassword){
-            $errors[] =  'password does not match!';
+            echo 'password does not match!';
         }
-        if(empty($errors)){
-            $backendService = new BackendService();
-            if($backendService->register($username, $password)){
-                session_start();
-                $_SESSION['user'] = $username;
+        else{
+            var_dump($service->register($username, $password));
+
+            if($service->register($username, $password)) {
+                $_SESSION["user"] = $username;
                 header("Location: friends.php");
-                exit;
-            }else{
-                echo 'Error';
-            }
-        }else{
-            foreach($errors as $error){
-                echo $error . "<br>";
             }
         }
-//    }
-//}
+    }
+}
 
 
 error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
