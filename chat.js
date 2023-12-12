@@ -22,12 +22,9 @@ function listMessages(to, fromToken) {
             let data = JSON.parse(xmlhttp.responseText);
             console.log(data);
             loadMessages(data);  
- 
         } 
     };
-    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/message/" + to, true);
-    // Add token, e. g., from Tom
-    xmlhttp.setRequestHeader('Authorization', 'Bearer ' + fromToken);
+    xmlhttp.open("GET", "ajax_load_messages.php?to=" + getChatpartner(), true);
     xmlhttp.send();
 }
 
@@ -39,8 +36,30 @@ function sendMessages() {
             console.log("done...");
         }
     };
-    xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/message", true);
-    xmlhttp.setRequestHeader('Content-type', 'application/json');
+
+    xmlhttp.open("POST", "ajax_send_message.php", true);
+
+    let data = {
+        msg: document.getElementById("messageField").value,
+        to: getChatpartner()
+    };
+    let string = JSON.stringify(data);
+    xmlhttp.send(string);
+
+    loadMessages(data);
+
+}
+
+function loadMessagePeriodically(){
+    listMessages(getChatpartner(), window.tokenTOM);
+    setTimeout(loadMessagePeriodically, 1000);
+}
+
+window.onload = function(){
+    loadMessagePeriodically();
+};
+
+    /*xmlhttp.setRequestHeader('Content-type', 'application/json');
     // Add token, e. g., from Tom
     xmlhttp.setRequestHeader('Authorization', 'Bearer ' + window.tokenTOM);
     // Create request data with message and receiver
@@ -54,7 +73,7 @@ function sendMessages() {
     let jsonString = JSON.stringify(data); // Serialize as JSON
     xmlhttp.send(jsonString); // Send JSON-data to server
     messageField.value = "";
-}
+*/
 
 //get correct Chat partner
 function getChatpartner() {
@@ -98,8 +117,6 @@ function loadMessages(data) {
 
         chatHistory = data; 
     }
-
-
 }
 
 function getChatHeadline() {

@@ -1,7 +1,14 @@
 <?php
 require("start.php");
-error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-ini_set ('display_errors', 1);
+
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
+if (!isset($_GET['friend']) || empty($_GET['friend'])) {
+    header("Location: friends.php");
+    exit();
+}
 ?>
 
 

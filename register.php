@@ -9,44 +9,50 @@ $user = "";
 $password = "";
 $confirmPassword = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+    $user = $_POST["user"];
+    $password = $_POST["password"];
+    $confirmPassword = $_POST["confirmPassword"];
     $isValid = true; // Add a variable to track overall validation
+    $exists = $service->userExists($user);
 
-    if(empty($_POST["user"])){
+    if($exists){
+        $emptyErr = "User already exists";
+        $isValid = false;
+    }
+    if(empty($_POST['user'])){
         $nameErr = "Username field is required!";
         $isValid = false; // Set the overall validation flag to false
-    }else if(strlen($_POST["user"]) < 3) {
+    }
+    if(strlen($_POST["user"]) < 3) {
         $nameErr = "Username must be at least 3 characters!";
         $isValid = false; // Set the overall validation flag to false
-    }else{
-        $user = $_POST["user"];
     }
     if(empty($_POST['password'])){
         $passwordErr = "Password field is required!";
         $isValid = false; // Set the overall validation flag to false
-    }else if(strlen($_POST["password"]) < 8) {
+    }
+    if(strlen($_POST["password"]) < 8) {
         $passwordErr = "Password must be at least 8 characters!";
         $isValid = false; // Set the overall validation flag to false
-    }else{
-        $password = $_POST["password"];
     }
+
     if(empty($_POST['confirmPassword'])){
         $passwordConfErr = "Password Confirmation field is required!";
         $isValid = false; // Set the overall validation flag to false
-    }else if($password !== $_POST['confirmPassword']) {
+    }
+    if($password !== $confirmPassword) {
         $passwordConfErr = "Password does not match";
         $isValid = false; // Set the overall validation flag to false
-    }else{
-        $confirmPassword = $_POST["confirmPassword"];
+ 
     }
-
     if($isValid) {
         // Perform registration if the overall validation is successful
-        var_dump($service->register($user, $password));
-        if($service->register($user, $password)) {
-            $_SESSION["user"] = $user;
+        $checkUser = $service->register($user, $password);
+        if($checkUser) {
+            $_SESSION['user'] = $user;
             header("Location: friends.php");
-            exit;
+            exit();
         }else{
             $emptyErr = "Registration failed!";
         }
@@ -66,13 +72,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="container">
         <img src="user.png" id="image" height="100" width="100">
         <h1>Register yourself</h1>
-        <form id="registerForm" method = "post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form id="registerForm" method = "post" action="<?php echo "register.php"?>">
             <fieldset class="legendFieldset">
                 <legend>Register</legend><br>
                     <div class="formControl">
                         <label for="username">Username:</label>
-                        <input class="error-input" class="success-input" type="text" name="user" onkeyup="checkUsername(this.value)" placeholder="Username"><br>
-                        <span class="error" id="ajax_check_user"></span>
+                        <input class="error-input" class="success-input" type="text" name="user" value="<?php echo $user;?>" placeholder="Username"><br>
+                        <span class="error"> * <?php echo $emptyErr;?></span>
                         <br><br>
                                         
                         <label for="password">Password:</label>
@@ -93,6 +99,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         </fieldset>
         </form>
         </div>
-        <script src="registerJS.js"> </script>
+        <!--<script src="registerJS.js"> </script>-->
     </body>
 </html>
