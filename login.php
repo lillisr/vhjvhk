@@ -47,14 +47,14 @@ if (isset($_POST["action"]) && $_POST["action"] == "login") {
 
                 <div class="username">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Username" required><br><br>
+                    <input type="text" id="username" name="username" placeholder="Username" ><br><br>
                 </div>
                 <div class="password">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+                    <input type="password" id="password" name="password" placeholder="Password" ><br><br>
                 </div>
                 <div class="submit">
-                    <a href=„register.php“><button type=„button“>Register</button></a>
+                    <a href=„register.php“><button type=„button“ class="greyButton">Register</button></a>
                     <button type="submit" name="action" value="login" class="coloredButton">Login</button>
                 </div>
             </fieldset>

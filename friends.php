@@ -174,7 +174,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
                 //echo ($friendslist);
 
                 $allUsers = $service->loadUsers();
-                foreach ($allUsers as $user) { }
+                foreach ($allUsers as $user) { 
                 foreach ($friendslist as $friend) {
                     //var_dump($friend);
                     $getFriendStatus = $friend->getStatus();
@@ -188,6 +188,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
 
                         <?php }
                 }
+            }
                 ?>
 
             </datalist>
