@@ -11,7 +11,6 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
 }
 ?>
 
-
 <!doctype html>
 <html>
     <head>
@@ -43,7 +42,6 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
             </div>
         </form>
         </div>
-        
     </body>
     <script src="chat.js"></script>
 </html>
