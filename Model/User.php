@@ -3,7 +3,7 @@ namespace Model;
 
 use JsonSerializable;
 
-class User implements JsonSerializable
+class User implements \JsonSerializable
 {
 
     // Teilaufgabe i:
@@ -12,7 +12,9 @@ class User implements JsonSerializable
     private $lastName;
     private $coffeeOrTea;
     private $TellSomething;
-    
+
+    private $rd;
+
 
 
 
@@ -31,6 +33,15 @@ class User implements JsonSerializable
         return $this->coffeeOrTea;
     }
 
+    public function getTellSomething()
+    {
+        return $this->TellSomething;
+    }
+    public function getrd()
+    {
+        return $this->rd;
+    }
+
     //setter für diese atribute
 
     public function setFirstName($firstName)
@@ -38,13 +49,21 @@ class User implements JsonSerializable
         $this->firstName = $firstName;
     }
 
-    public function setLastName($lastname)
+    public function setLastName($lastName)
     {
-        $this->lastName = $lastname;
+        $this->lastName = $lastName;
     }
     public function setCoffeeOrTea($coffeeOrTea)
     {
         $this->coffeeOrTea = $coffeeOrTea;
+    }
+    public function setTellSomething($TellSomething)
+    {
+        $this->TellSomething= $TellSomething;
+    }
+    public function setrd($rd)
+    {
+        $this->rd = $rd;
     }
 
 // ende Teilaufgabe i

@@ -6,59 +6,59 @@ ini_set ('display_errors', 1);
 
 //Teilaufgabe i
 
-//tip
 
-
-//if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
-  //  header('Location: login.php');
-  //  exit();
-//} // woher kommt $_SESSION -> In Backend service klasse definiert in Methode login
-
-
-
+// nutzer wegleietn wenn dieser unbekannt ist
+if(!isset($_SESSION['user']) || empty($_SESSION['user'])){
+	header("Location:login.php");
+	die();
+}
 
 
 //me 
-// Laden Sie den Benutzer aus der Session
-//if(isset($_SESSION["user"]) ){
-	//$loggedInUser = $_SESSION["user"];
+ //Laden Sie den Benutzer aus der Session
+if(isset($_SESSION["user"]) ){
+	$loggedInUser = $_SESSION["user"];
 
-//}
-
-
-
-/*
+} 
 
 // Verarbeiten Sie das Formular nur, wenn Daten übermittelt wurden
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen wenn fomular abgesendet wurde
+        //eingene überprüfung
+    
     // Laden Sie die Eingaben aus dem Formular
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $coffeeOrTea = $_POST['coffeeOrTea'];
-    $aboutMe = $_POST['aboutMe'];
-    $chatLayout = $_POST['chatLayout'];
+    $firstName = $_POST["FirstName"];
+    $lastName = $_POST['LastName'];
+    $coffeeOrTea = $_POST['CoffeeOrTea'];
+    $TellSomething = $_POST['TellSomething'];
+    $rd = $_POST['rd'];
+
+    var_dump($_POST);
+    
+    //var_dump($service->loadUsers());
+    var_dump($loggedInUser);
+    var_dump($firstName);
 
     // Aktualisieren Sie die Benutzerdaten
     $loggedInUser->setFirstName($firstName);
     $loggedInUser->setLastName($lastName);
     $loggedInUser->setCoffeeOrTea($coffeeOrTea);
-    $loggedInUser->setAboutMe($aboutMe);
-    $loggedInUser->setChatLayout($chatLayout);
+    $loggedInUser->setTellSomething($TellSomething);
+    $loggedInUser->setrd($rd);
+
 
     // Speichern Sie den aktualisierten Benutzer im Backend
-    $backendService = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
+    $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
     
-    if ($backendService->saveUser($loggedInUser)) {
+    if ($service->saveUser($loggedInUser)) {    //ist das so richtig?
         // Erfolgreich gespeichert
+
         echo "Einstellungen erfolgreich gespeichert!";
     } else {
         // Fehler beim Speichern
         echo "Fehler beim Speichern der Einstellungen!";
     }
-}
 
-*/
-
+} 
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="FN">
                 <label for="FirstName">First Name</label> 
-                <input type="text" name="FirstName" id=weite placeholder="Your Name"><br>
+                <input type="text" name="FirstName" id=weite  placeholder="Your Name"  ><br>
             </div>
             <div class="LN"> 
                 <label for="LastName">Last Name</label> 
@@ -94,18 +94,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Tell something about you </legend>
-            <label type="text" name="TellSomething" for=textarea ><Textarea placeholder="Leave a comment here"> </Textarea></label> <br>
+            <label  for=textarea ><Textarea name="TellSomething"  placeholder="Leave a comment here"> </Textarea></label> <br>
 
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Prefered Chat Layout </legend>
-            <label><input type="radio" name="rd">UserName and Message in one line</label><br>
+            <label><input type="radio" name="rd">UserName and Message in one line</label><br> <!--ist das so richtig? -->
             <label> <input type="radio" name="rd">Username and Message in seperate lines</label><br>
         </fieldset> <br>
         
-             <button  type="submit" formaction="friends.html" class="greyButton" >Cancel</button>
-             <button class="coloredButton"> Save </button></div></br>
-        
+             <button   formaction="friends.php" class="greyButton" >Cancel</button>
+             <button type="submit" value="senden" name="action"class="coloredButton"> Save </button></div></br>
+</form>
 </div>
     </body>
     </html>

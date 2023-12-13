@@ -56,7 +56,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
                     <input type="password" id="password" name="password" placeholder="Password" required><br><br>
                 </div>
                 <div class="submit">
-                    <button type="submit" formaction="register.php" class="greyButton" formnovalidate>Register</button>
+                    <button type="button" formaction="register.php" class="greyButton" formnovalidate>Register</button>
                     <button type="submit" name="action" value="login" class="coloredButton">Login</button>
                 </div>
             </fieldset>
