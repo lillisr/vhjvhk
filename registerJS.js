@@ -54,7 +54,7 @@ function Toggle() {
 */
 
 
-v/*ar usernameToCheck = "der eingegebene Benutzername";
+/*var usernameToCheck = "der eingegebene Benutzername";
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
@@ -69,7 +69,7 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "ajax_check_user.php?user=" + usernameToCheck, true);
 xhttp.send();
 */
-
+/*
 function checkUsername(user){
     if(user.length == 0){
         document.getElementById("ajax_check_user").innerHTML = "";
@@ -89,3 +89,4 @@ function checkUsername(user){
         xmlhttp.send();
     }
 }
+*/
