@@ -16,13 +16,13 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
     $password = $_POST["password"];
 
     //check if username/password correct -> login method BackendService
-    var_dump($service->login($username, $password));
+    //var_dump($service->login($username, $password));
 
     if($service->login($username, $password)) {
         $_SESSION["user"] = $username;
         header("Location: friends.php");
-    } else {
-        echo "error";
+    } else { ?>
+        <h3> Invalid Username / Password </h3> <?php
     }
 }
 

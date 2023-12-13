@@ -65,7 +65,8 @@ let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
     
     if (xmlhttp.readyState == 4 && xmlhttp.status == 204 ) {
-        loadFriends();
+        //AUSKOMMENTIERT VON CIA
+        //loadFriends();
 
 }
 };
@@ -97,9 +98,12 @@ xmlhttp.send();
 }
 */
 
+
+/* AUSKOMMENTIERT VON CIA
 window.setInterval(function() {
     loadFriends();
     }, 1000);
+    */
 
     function loadFriends() {
         const xmlhttp = new XMLHttpRequest();
@@ -112,8 +116,10 @@ window.setInterval(function() {
                 console.log(data);
                 
                 // Aktualisierung der Listen auf der Seite
+                /* AUSKOMMENTIERT VON CIA
                 updateacceptedList(acceptedFriends, 'accepted-friends');
                 updaterequestList(requestedFriends, 'new-requests');
+                */
 
             }
         };
