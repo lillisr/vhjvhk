@@ -1,8 +1,6 @@
 <?php
 require("start.php");
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-ini_set('display_errors', 1);
-$service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
+
 
 
 //check if user is logged in
@@ -25,9 +23,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "add-friend") {
     // Call the friendRequest method on the BackendService instance
     $service->friendRequest($newFriend);
 
-} else {
-    echo "error";
-}
+} 
 
 
 //check if accept friend is sent
@@ -40,8 +36,6 @@ if (isset($_POST["action"]) && $_POST["action"] == "accept-friend") {
     // Call the friendAccept method on the BackendService instance
     $service->friendAccept($friendName);
 
-} else {
-    echo "error";
 }
 
 //check if reject friend is sent  
@@ -54,21 +48,20 @@ if (isset($_POST["action"]) && $_POST["action"] == "reject-friend") {
     // Call the friendAccept method on the BackendService instance
     $service->friendDismiss($friendName);
 
-} else {
-    echo "error";
 }
 
+// check if remove friend is sent
+
+if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
+
+    $friendName = $_GET["friend"];
 
 
-//debug
-function debug_to_console($data)
-{
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
+    // Call the friendAccept method on the BackendService instance
+    $service->removeFriend($friendName);
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
+
 ?>
 
 <html>
@@ -95,11 +88,10 @@ function debug_to_console($data)
             <div>
                 <?php
 
-                //var_dump($friendslist);
-                //var_dump($_SESSION["user"]);
+                
                 if (sizeof($friendslist) == 0) {
                     ?>
-                    <p> "Es ist ziemlich ruhig hier..." </p>
+                    <p> No friends here... yet </p>
                     <?php
                 }
                 ?>
@@ -134,10 +126,13 @@ function debug_to_console($data)
             <p> Friends request from </p>
             <ol id="new-requests">
                 <?php
+                $noFriendRequests = true;
                 foreach ($friendslist as $friend) {
                     //requested friends
                     $getFriendStatus = $friend->getStatus();
-                    if ($getFriendStatus == "requested") { ?>
+                    if ($getFriendStatus == "requested") {
+                        $noFriendRequests = false;
+                            ?>
                         <li class="list-item">
                             <?php echo $friend->getUsername(); ?>
                             <div class="request-action-buttons">
@@ -149,19 +144,20 @@ function debug_to_console($data)
                                 </form>
                             </div>
                             <?php
-                    }
-                    //no friends
-                    if (sizeof($friendslist) == 0) {
-                        ?>
-                            <p> "Es ist ziemlich ruhig hier..." </p>
-                            <?php
-                    }
-
-                    ?>
-
+                    } ?>
 
                     </li>
+
                 <?php } ?>
+                <?php
+                //no friends
+                if ($noFriendRequests) {
+                    ?>
+                    <p> none... </p>
+                    <?php
+                }
+
+                ?>
             </ol>
         </div>
 
@@ -179,6 +175,7 @@ function debug_to_console($data)
                 foreach ($friendslist as $friend) {
                     var_dump($friend);
                     $getFriendStatus = $friend->getStatus();
+                    //loadUsers in array
                     if ($getFriendStatus == "requested" && $friend->getUsername() != $_SESSION["user"]) {
                         $addFriend = $friend->getUsername();
 
