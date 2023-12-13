@@ -11,9 +11,8 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
 }
 $username = $_GET['friend'];
 var_dump($username);
-
+ 
 ?>
-
 
 <!doctype html>
 <html>
