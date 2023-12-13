@@ -24,7 +24,7 @@ class User implements \JsonSerializable
     {
         return $this->firstName;
     }
-    public function getLasttName()
+    public function getLastName()
     {
         return $this->lastName;
     }

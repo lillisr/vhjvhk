@@ -9,8 +9,10 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
     header("Location: friends.php");
     exit();
 }
-?>
+$username=$_GET['friend'];
+// var_dump($username);
 
+?>
 
 <!doctype html>
 <html>
