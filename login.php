@@ -1,28 +1,26 @@
 <?php
 require("start.php");
 
-if(isset($_SESSION["user"]) && $_SESSION["user"]) {
+if (isset($_SESSION["user"]) && $_SESSION["user"]) {
     header("Location: friends.php");
     die();
 }
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-ini_set('display_errors', 1);
-$service = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
 
 
 //data was sent, button is clicked
-if(isset($_POST["action"]) && $_POST["action"] == "login") {
+if (isset($_POST["action"]) && $_POST["action"] == "login") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     //check if username/password correct -> login method BackendService
     //var_dump($service->login($username, $password));
 
-    if($service->login($username, $password)) {
+    if ($service->login($username, $password)) {
         $_SESSION["user"] = $username;
         header("Location: friends.php");
     } else { ?>
-        <h3> Invalid Username / Password </h3> <?php
+        <h3> Invalid Username / Password </h3>
+        <?php
     }
 }
 
@@ -56,7 +54,7 @@ if(isset($_POST["action"]) && $_POST["action"] == "login") {
                     <input type="password" id="password" name="password" placeholder="Password" required><br><br>
                 </div>
                 <div class="submit">
-                    <button type="button" formaction="register.php" class="greyButton" formnovalidate>Register</button>
+                    <a href=„register.php“><button type=„button“>Register</button></a>
                     <button type="submit" name="action" value="login" class="coloredButton">Login</button>
                 </div>
             </fieldset>
