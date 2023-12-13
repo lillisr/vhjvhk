@@ -124,8 +124,7 @@ window.setInterval(function() {
             }
         };
     
-        xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend", true);
-        xmlhttp.setRequestHeader('Authorization', 'Bearer ' + window.tokenTOM);
+        xmlhttp.open("GET", ajax_load_friends.php, true);
         xmlhttp.send();
     }
 
