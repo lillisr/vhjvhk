@@ -9,6 +9,9 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
     header("Location: friends.php");
     exit();
 }
+$username=$_GET['friend'];
+var_dump($username);
+
 ?>
 
 
@@ -25,7 +28,7 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
         <form class="chat">
             <h1 id="chatPartner"> </h1>
             <a href="friends.php" target="_back"> >Back </a> |
-            <a href="profile.php" target="_Profile"> Profile </a> |
+            <a href="profile.php?friend=<?php echo $username //bearbeitung von lilli?>"target="_Profile"> Profile </a> | 
             <a href="friends.php" target="RemoveFriend" id="Achtung"> Remove Friend </a><br>
             <hr />
             <div class="chatlist">

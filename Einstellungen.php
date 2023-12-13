@@ -13,30 +13,35 @@ if(!isset($_SESSION['user']) || empty($_SESSION['user'])){
 	die();
 }
 
-
+$username=null;
 //me 
  //Laden Sie den Benutzer aus der Session
 if(isset($_SESSION["user"]) ){
-	$loggedInUser = $_SESSION["user"];
+	$username = $_SESSION["user"];
+    
+
+    // Laden des Benutzers über den BackendService
+    $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
+    $loggedInUser = $service->loadUser($username); //nutzer über backendserver geladen und inloadesuser gespeichert
+
 
 } 
 
-// Verarbeiten Sie das Formular nur, wenn Daten übermittelt wurden
+// Verarbeiten des Formulars nur, wenn Daten übermittelt wurden
 if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen wenn fomular abgesendet wurde
-        //eingene überprüfung
     
-    // Laden Sie die Eingaben aus dem Formular
+    
+    // Laden der Eingaben aus dem Formular
     $firstName = $_POST["FirstName"];
     $lastName = $_POST['LastName'];
     $coffeeOrTea = $_POST['CoffeeOrTea'];
     $TellSomething = $_POST['TellSomething'];
     $rd = $_POST['rd'];
 
-    var_dump($_POST);
+   
     
-    //var_dump($service->loadUsers());
-    var_dump($loggedInUser);
-    var_dump($firstName);
+    
+   
 
     // Aktualisieren Sie die Benutzerdaten
     $loggedInUser->setFirstName($firstName);
@@ -46,10 +51,10 @@ if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen
     $loggedInUser->setrd($rd);
 
 
-    // Speichern Sie den aktualisierten Benutzer im Backend
+    // Speichern des aktualisierten User im Backend
     $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
     
-    if ($service->saveUser($loggedInUser)) {    //ist das so richtig?
+    if ($service->saveUser($loggedInUser)) {    
         // Erfolgreich gespeichert
 
         echo "Einstellungen erfolgreich gespeichert!";
@@ -65,7 +70,7 @@ if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen
 <html>
 
 <head>
-    <title>Aufgabe1.3</title>
+    <title>Einstellungen</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
 </head>
@@ -80,27 +85,28 @@ if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen
 
             <div class="FN">
                 <label for="FirstName">First Name</label> 
-                <input type="text" name="FirstName" id=weite  placeholder="Your Name"  ><br>
+                <input type="text" name="FirstName" id=weite  placeholder="Your Name" value="<?php echo $loggedInUser->getFirstName() ?>" > <br>
             </div>
             <div class="LN"> 
                 <label for="LastName">Last Name</label> 
-                <input type="text" name="LastName" id=weite placeholder="Your Surname"><br>
+                <input type="text" name="LastName" id=weite placeholder="Your Surname" value="<?php echo $loggedInUser->getLastName()?> "> <br> 
+                    <option> Tea</option>
             </div>
             <div class="T"><label for="CoffeeorTea">Coffee or Tea?</label> 
-                <select type="action" name=CoffeeOrTea id=weite> <!--was ist select für ein type??? -->
-                    <option> Tea</option>
-                    <option> Coffee</option>
+                <select type="action" name=CoffeeOrTea id=weite > <!--was ist select für ein type??? -->
+                    <option value="Tea" <?php echo ($loggedInUser->getCoffeeorTea() === 'Tea') ? 'selected' : ''; ?>> Tea</option>
+                    <option value="Coffee" <?php echo ($loggedInUser->getCoffeeOrTea() === 'Coffee') ? 'selected' : ''; ?>> Coffee</option>
                 </select></div>
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Tell something about you </legend>
-            <label  for=textarea ><Textarea name="TellSomething"  placeholder="Leave a comment here"> </Textarea></label> <br>
+            <label  for=textarea ><Textarea name="TellSomething"  placeholder="Leave a comment here" ><?php echo $loggedInUser->getTellSomething() ?> </Textarea></label> <br>
 
         </fieldset>
         <fieldset class="legendFieldset">
             <legend> Prefered Chat Layout </legend>
-            <label><input type="radio" name="rd">UserName and Message in one line</label><br> <!--ist das so richtig? -->
-            <label> <input type="radio" name="rd">Username and Message in seperate lines</label><br>
+            <label><input type="radio" name="rd" value="1" <?php echo ($loggedInUser->getrd() === '1') ? 'checked' : ''; ?>>UserName and Message in one line</label><br> <!--ist das so richtig? -->
+            <label> <input type="radio" name="rd" value="2" <?php echo ($loggedInUser->getrd() === '2') ? 'checked' : ''; ?>>Username and Message in seperate lines</label><br>
         </fieldset> <br>
         
              <button   formaction="friends.php" class="greyButton" >Cancel</button>
