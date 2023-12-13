@@ -10,7 +10,7 @@ if (!isset($_GET['friend']) || empty($_GET['friend'])) {
     exit();
 }
 $username=$_GET['friend'];
-var_dump($username);
+// var_dump($username);
 
 ?>
 
