@@ -171,9 +171,12 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
             <datalist id="friend-selector">
 
                 <?php
-                echo ($friendslist);
+                //echo ($friendslist);
+
+                $allUsers = $service->loadUsers();
+                foreach ($allUsers as $user) { }
                 foreach ($friendslist as $friend) {
-                    var_dump($friend);
+                    //var_dump($friend);
                     $getFriendStatus = $friend->getStatus();
                     //loadUsers in array
                     if ($getFriendStatus == "requested" && $friend->getUsername() != $_SESSION["user"]) {
