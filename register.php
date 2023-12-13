@@ -100,6 +100,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         </fieldset>
         </form>
         </div>
-        <!--<script src="registerJS.js"> </script>-->
     </body>
 </html>
