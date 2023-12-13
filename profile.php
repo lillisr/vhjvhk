@@ -13,15 +13,12 @@ if(!isset($_SESSION['user']) || empty($_SESSION['user'])){
 // Laden des Benutzers basierend auf dem im Query-Parameter vorgegebenen Namen
 $loadedUser =null;   //global...
 
-
 if (isset($_GET['friend']) && !empty($_GET['friend'])) { //hier wird überprüft ob der queryparameter nicht leer ist
     $username = $_GET['friend']; //freund wird über queryparamter geladen
 
     // Laden des Benutzers über den BackendService
     $service = new \Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
     $loadedUser = $service->loadUser($username); //nutzer über backendserver geladen und inloadesuser gespeichert
-
-   
 
     // Überprüfen, ob der Benutzer geladen wurde
    if (!$loadedUser) {
@@ -33,7 +30,6 @@ if (isset($_GET['friend']) && !empty($_GET['friend'])) { //hier wird überprüft
     header("Location: friends.php");
     die(); 
 } 
-
 
 ?>
 
