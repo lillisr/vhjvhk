@@ -68,6 +68,10 @@ background-color: rgb(250, 250, 250);
 
 }
 
+#registerButton {
+    text-decoration: none;
+}
+
 /* to align it */
 .password label {
     margin-right:6px;
