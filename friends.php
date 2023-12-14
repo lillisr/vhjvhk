@@ -70,7 +70,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
     <title>friends</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
-    <script src="main2.js" defer></script> 
+    <script src="main2.js" defer></script>
 </head>
 
 <body class="friends">
@@ -100,7 +100,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
                     foreach ($friendslist as $friend) {
                         //var_dump($friend); ?>
                         <li>
-                            <?php 
+                            <?php
                             $getFriendStatus = $friend->getStatus();
                             if ($getFriendStatus == "accepted") {
                                 ?>
@@ -171,27 +171,34 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
             <datalist id="friend-selector">
 
                 <?php
-                //echo ($friendslist);
                 
+                //get Friendslist users
+                $friendsInList = array();
+                foreach ($friendslist as $friend) {
+                    $username = $friend->getUsername();
+                    $friendsInList[] = $username;
+                }
+                //get all users
                 $allUsers = $service->loadUsers();
                 //var_dump($allUsers);
 
-                foreach ($allUsers as $user) {
-                    // $loadUser = $service->loadUser($user);
+                //compare those two arrays, get users that are not in friendslist
+                $notFriends = array_diff($allUsers, $friendsInList);
+                //var_dump($notFriends);
+
+                //hier: foreach ($allUsers as $user) 
+                // hier: if (!in_array($user, $friendslist2) && $user != $_SESSION["user"]) {
+                //hier: $addFriend = $user;
+                //hier: var_dump($addFriend);
+                //var_dump($addFriend);
                 
-                    if (!in_array($user, $friendslist) && $user != $_SESSION["user"]) {
-
-                        //if ($getFriendStatus != "requested" && $loadUser->getUsername() != $_SESSION["user"]) {
-                        $addFriend = $user;
-
-                        //var_dump($addFriend);
+                foreach ($notFriends as $user) {
+                    $loadUser = $service->loadUser($user);
+                    if ($loadUser->getUsername() != $_SESSION["user"]) {
                         ?>
-                        <option value="<?= $addFriend ?>">
-
+                        <option value="<?= $user ?>">
                         <?php }
-                }
-
-                ?>
+                } ?>
 
             </datalist>
             <div class="addButton">
