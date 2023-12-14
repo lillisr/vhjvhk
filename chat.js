@@ -43,8 +43,11 @@ function sendMessages() {
         msg: document.getElementById("messageField").value,
         to: getChatpartner()
     };
+    
     let string = JSON.stringify(data);
     xmlhttp.send(string);
+    
+    document.getElementById("messageField").value = "";
 
     loadMessages(data);
 
