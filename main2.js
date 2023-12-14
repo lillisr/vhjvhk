@@ -8,7 +8,7 @@ window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectio
 window.tokenTOM = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMjI5NTIzfQ.15wcKi2kqllvpeAFIAYVa2UlSUxUUgOrt7FaZS9rrlM";
 window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAyMjk1MjN9.Jwr1I8pkjh3roG_3uUss3kgcGrays2eepnFzdawNuDA";
 
-
+/*
 //Funktion, um die Datalist mit Benutzernamen zu befüllen
 function populateList() {
     const datalist = document.getElementById('friend-selector');
@@ -59,6 +59,7 @@ deletefriendanfrage(friendRequestName);
 }
 */
  // Funktion, um eine Freundschaftsanfrage an das Backend zu senden
+ /*
  function sendFriendRequest(friendName) {
 
 let xmlhttp = new XMLHttpRequest();
@@ -81,6 +82,7 @@ let data = {
 let jsonString = JSON.stringify(data);
 xmlhttp.send(jsonString);
  }
+ 
 
  /*delete
 function deletefriendanfrage(friendName) {
@@ -104,6 +106,7 @@ window.setInterval(function() {
     loadFriends();
     }, 1000);
     */
+   
 
     function loadFriends() {
         const xmlhttp = new XMLHttpRequest();
@@ -129,6 +132,7 @@ window.setInterval(function() {
     }
 
 
+    /*
  
     function updateacceptedList(friends, listId) {
         const list = document.getElementById(listId);
@@ -192,4 +196,4 @@ window.setInterval(function() {
 }
 
     populateList();
-
+*/

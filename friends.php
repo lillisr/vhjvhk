@@ -1,6 +1,8 @@
 <?php
 require("start.php");
 
+//load page
+header("Refresh:5");
 
 
 //check if user is logged in
@@ -23,7 +25,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "add-friend") {
     // Call the friendRequest method on the BackendService instance
     $service->friendRequest($newFriend);
 
-} 
+}
 
 
 //check if accept friend is sent
@@ -44,7 +46,6 @@ if (isset($_POST["action"]) && $_POST["action"] == "reject-friend") {
 
     $friendName = $_POST["item_id"];
 
-
     // Call the friendAccept method on the BackendService instance
     $service->friendDismiss($friendName);
 
@@ -55,7 +56,6 @@ if (isset($_POST["action"]) && $_POST["action"] == "reject-friend") {
 if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
 
     $friendName = $_GET["friend"];
-
 
     // Call the friendAccept method on the BackendService instance
     $service->removeFriend($friendName);
@@ -70,7 +70,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
     <title>friends</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
-    <!--<script src="main2.js" defer></script> -->
+    <script src="main2.js" defer></script> 
 </head>
 
 <body class="friends">
@@ -88,7 +88,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
             <div>
                 <?php
 
-                
+
                 if (sizeof($friendslist) == 0) {
                     ?>
                     <p> No friends here... yet </p>
@@ -100,7 +100,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
                     foreach ($friendslist as $friend) {
                         //var_dump($friend); ?>
                         <li>
-                            <?php
+                            <?php 
                             $getFriendStatus = $friend->getStatus();
                             if ($getFriendStatus == "accepted") {
                                 ?>
@@ -132,7 +132,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
                     $getFriendStatus = $friend->getStatus();
                     if ($getFriendStatus == "requested") {
                         $noFriendRequests = false;
-                            ?>
+                        ?>
                         <li class="list-item">
                             <?php echo $friend->getUsername(); ?>
                             <div class="request-action-buttons">
@@ -172,23 +172,25 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
 
                 <?php
                 //echo ($friendslist);
-
+                
                 $allUsers = $service->loadUsers();
-                foreach ($allUsers as $user) { 
-                foreach ($friendslist as $friend) {
-                    //var_dump($friend);
-                    $getFriendStatus = $friend->getStatus();
-                    //loadUsers in array
-                    if ($getFriendStatus == "requested" && $friend->getUsername() != $_SESSION["user"]) {
-                        $addFriend = $friend->getUsername();
+                //var_dump($allUsers);
 
-                        var_dump($addFriend);
+                foreach ($allUsers as $user) {
+                    // $loadUser = $service->loadUser($user);
+                
+                    if (!in_array($user, $friendslist) && $user != $_SESSION["user"]) {
+
+                        //if ($getFriendStatus != "requested" && $loadUser->getUsername() != $_SESSION["user"]) {
+                        $addFriend = $user;
+
+                        //var_dump($addFriend);
                         ?>
                         <option value="<?= $addFriend ?>">
 
                         <?php }
                 }
-            }
+
                 ?>
 
             </datalist>
