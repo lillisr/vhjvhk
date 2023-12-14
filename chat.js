@@ -128,10 +128,11 @@ function getChatHeadline() {
 }
 
 //reloading the messages every second
-window.setInterval(function () {
+/*window.setInterval(function () {
     //loadFriends();
     listMessages(getChatpartner(), window.tokenTOM);
 }, 1000);
+*/
 
 
 /* zeichen string aus json parse
