@@ -68,8 +68,8 @@ $friend = $_GET['friend'];
             <hr />
 
             <div class="input-group mb-3">
-             <input type="text" class="form-control" placeholder="New Message " aria-label="New Message" aria-describedby="button-addon2">
-             <button class="btn btn-outline-secondary" type="button" onclick="sendMessages()" id="button-addon2">Send</button> <!--onclick funktioniert nicht -->
+             <input type="text" class="form-control" placeholder="New Message " aria-label="New Message" aria-describedby="button-addon2" id="messageField">
+             <button class="btn btn-outline-secondary" type="button" onclick="sendMessages()" id="button-addon2" >Send</button> <!--onclick funktioniert nicht -->
             </div>
             <!--<div class="newMessage">
                 <input class="Message" type="text" placeholder="New Message" id="messageField">
