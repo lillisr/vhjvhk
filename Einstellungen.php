@@ -60,6 +60,7 @@ if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen
     <title>Einstellungen</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemien.css">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
 </head>
 
 <body class="settings">
@@ -100,5 +101,9 @@ if  (isset($_POST['action']) && $_POST['action'] == 'senden'){ // nur ausführen
              <button type="submit" value="senden" name="action"class="coloredButton"> Save </button></div></br>
 </form>
 </div>
+
+<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' crossorigin='anonymous'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js' crossorigin='anonymous'></script>
+
     </body>
     </html>
