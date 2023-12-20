@@ -14,37 +14,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     $user = $_POST["user"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
-    $isValid = true; // Add a variable to track overall validation
+    $isValid = true; 
     $exists = $service->userExists($user);
-
+}
     if($exists){
         $emptyErr = "User already exists";
         $isValid = false;
     }
     if(empty($_POST['user'])){
         $nameErr = "Username field is required!";
-        $isValid = false; // Set the overall validation flag to false
+        $isValid = false; 
     }
     if(strlen($_POST["user"]) < 3) {
         $nameErr = "Username must be at least 3 characters!";
-        $isValid = false; // Set the overall validation flag to false
-    }
+        $isValid = false; 
     if(empty($_POST['password'])){
         $passwordErr = "Password field is required!";
-        $isValid = false; // Set the overall validation flag to false
+        $isValid = false; 
     }
     if(strlen($_POST["password"]) < 8) {
         $passwordErr = "Password must be at least 8 characters!";
-        $isValid = false; // Set the overall validation flag to false
+        $isValid = false; 
     }
 
     if(empty($_POST['confirmPassword'])){
         $passwordConfErr = "Password Confirmation field is required!";
-        $isValid = false; // Set the overall validation flag to false
+        $isValid = false; 
     }
     if($password !== $confirmPassword) {
         $passwordConfErr = "Password does not match";
-        $isValid = false; // Set the overall validation flag to false
+        $isValid = false; 
  
     }
     if($isValid) {
