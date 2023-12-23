@@ -28,7 +28,7 @@ $friend = $_GET['friend'];
     <div class="container">
         <form class="chat" method="GET">
             <h1 id="chatPartner"> </h1>
-            <a href="friends.php" target="_back"> >Back </a> |
+            <a href="friends.php" target="_self"> >Back </a> |
             <a href="profile.php?friend=<?php echo $friend ?>" target="_Profile"> Profile </a> |
             <a href="friends.php?friend=<?php echo $_GET['friend'] ?>&action=remove-friend" id="Achtung"> Remove Friend
             </a><br>
