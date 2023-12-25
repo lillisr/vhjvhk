@@ -142,22 +142,51 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
                 ?>
                 <div class="input-group mb-3">
                     <!-- <li class="list-group-item"> -->
-                    <p class="form-control">
-                        <?php echo $friend->getUsername(); ?>
+                    <p class="form-control" data-bs-toggle="modal" data-bs-target="#acceptModal">
+                        <?php echo $friend->getUsername();
+                        ?>
                     </p>
                     <form method="POST" action="friends.php">
                         <input type="hidden" id="item_id" name="item_id" value="<?php echo $friend->getUsername(); ?>">
-                        <div class="btn-group">
-                            <button type="submit" class="btn btn-primary" name="action" value="accept-friend">Accept</button>
-                            <button type="submit" name="action" value="reject-friend" class="btn btn-secondary">Reject</button>
-                        </div>
+                        <!--  <div class="btn-group">
+                          <button type="submit" name="action" value="accept-friend" class="btn btn-primary">Accept</button>
+                            <button type="submit" name="action" value="reject-friend" class="btn btn-secondary">Reject</button> 
+                        </div> -->
                     </form>
+                </div>
+
+                <!--  Modal -->
+                <div class="modal" id="acceptModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Request from
+                                    <?php echo $friend->getUsername(); ?>
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Accept request?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form method="POST" action="friends.php">
+                                    <input type="hidden" id="item_id" name="item_id"
+                                        value="<?php echo $friend->getUsername(); ?>">
+                                    <button type="submit" name="action" value="accept-friend"
+                                        class="btn btn-primary">Accept</button>
+                                    <button type="submit" name="action" value="reject-friend"
+                                        class="btn btn-secondary">Reject</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <?php
             } ?>
 
-            <!--  </li> -->
+
+
 
         <?php } ?>
         <?php
@@ -173,54 +202,54 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
 
         <!-- </div> -->
         <hr />
-            <div class="justify-content-center"> 
+        <div class="justify-content-center">
             <form action="friends.php" method="POST">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Add Friend to List" name="friendRequestName"
-                    id="friend-request-name" list="friend-selector">
-                
-                <datalist id="friend-selector">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Add Friend to List" name="friendRequestName"
+                        id="friend-request-name" list="friend-selector">
 
-                    <?php
+                    <datalist id="friend-selector">
 
-                    //get Friendslist users
-                    $friendsInList = array();
-                    foreach ($friendslist as $friend) {
-                        $username = $friend->getUsername();
-                        $friendsInList[] = $username;
-                    }
-                    //get all users
-                    $allUsers = $service->loadUsers();
-                    //var_dump($allUsers);
-                    
-                    //compare those two arrays, get users that are not in friendslist
-                    $notFriends = array_diff($allUsers, $friendsInList);
-                    //var_dump($notFriends);
-                    
-                    //hier: foreach ($allUsers as $user) 
-                    // hier: if (!in_array($user, $friendslist2) && $user != $_SESSION["user"]) {
-                    //hier: $addFriend = $user;
-                    //hier: var_dump($addFriend);
-                    //var_dump($addFriend);
-                    
-                    foreach ($notFriends as $user) {
-                        $loadUser = $service->loadUser($user);
-                        if ($loadUser->getUsername() != $_SESSION["user"]) {
-                            ?>
-                            <option value="<?= $user ?>">
-                            <?php }
-                    } ?>
+                        <?php
 
-                </datalist>
-                <button type="submit" name="action" value="add-friend" class="btn btn-primary"
-                    onclick="addFriend()">Add</button>
+                        //get Friendslist users
+                        $friendsInList = array();
+                        foreach ($friendslist as $friend) {
+                            $username = $friend->getUsername();
+                            $friendsInList[] = $username;
+                        }
+                        //get all users
+                        $allUsers = $service->loadUsers();
+                        //var_dump($allUsers);
+                        
+                        //compare those two arrays, get users that are not in friendslist
+                        $notFriends = array_diff($allUsers, $friendsInList);
+                        //var_dump($notFriends);
+                        
+                        //hier: foreach ($allUsers as $user) 
+                        // hier: if (!in_array($user, $friendslist2) && $user != $_SESSION["user"]) {
+                        //hier: $addFriend = $user;
+                        //hier: var_dump($addFriend);
+                        //var_dump($addFriend);
+                        
+                        foreach ($notFriends as $user) {
+                            $loadUser = $service->loadUser($user);
+                            if ($loadUser->getUsername() != $_SESSION["user"]) {
+                                ?>
+                                <option value="<?= $user ?>">
+                                <?php }
+                        } ?>
+
+                    </datalist>
+                    <button type="submit" name="action" value="add-friend" class="btn btn-primary"
+                        onclick="addFriend()">Add</button>
                 </div>
             </form>
-            </div>
-        
+        </div>
+
 
     </div>
-    
+
 
 </body>
 
