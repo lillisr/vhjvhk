@@ -1,5 +1,5 @@
 //Id hinter URL plazieren
-window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2"; 
+window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2";
 
 //  Basis-URL des Servers
 window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectionId;
@@ -58,40 +58,40 @@ function deleteFriend(){
 deletefriendanfrage(friendRequestName);
 }
 */
- // Funktion, um eine Freundschaftsanfrage an das Backend zu senden
- /*
- function sendFriendRequest(friendName) {
+// Funktion, um eine Freundschaftsanfrage an das Backend zu senden
+/*
+function sendFriendRequest(friendName) {
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
-    
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 204 ) {
-        //AUSKOMMENTIERT VON CIA
-        //loadFriends();
+   
+   if (xmlhttp.readyState == 4 && xmlhttp.status == 204 ) {
+       //AUSKOMMENTIERT VON CIA
+       //loadFriends();
 
 }
 };
 
-    xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend", true);
+   xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend", true);
 xmlhttp.setRequestHeader('Content-type', 'application/json');
 xmlhttp.setRequestHeader('Authorization', 'Bearer '+ window.tokenTOM );
 
 let data = {
-    username: friendName
+   username: friendName
 };
 let jsonString = JSON.stringify(data);
 xmlhttp.send(jsonString);
- }
+}
  
 
- /*delete
+/*delete
 function deletefriendanfrage(friendName) {
- let xmlhttp = new XMLHttpRequest();
+let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-        loadFriends();
-        console.log("Removed...");
-    }
+   if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+       loadFriends();
+       console.log("Removed...");
+   }
 };
 xmlhttp.open("DELETE", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend/tom", true);
 xmlhttp.setRequestHeader('Content-type', 'application/json');
@@ -106,94 +106,99 @@ window.setInterval(function() {
     loadFriends();
     }, 1000);
     */
-   
-
-    function loadFriends() {
-        const xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                let data = JSON.parse(xmlhttp.responseText);
-    
-                const acceptedFriends = data.filter(friend => friend.status === "accepted");
-                const requestedFriends = data.filter(friend => friend.status === "requested");
-                console.log(data);
-                
-                // Aktualisierung der Listen auf der Seite
-                /* AUSKOMMENTIERT VON CIA
-                updateacceptedList(acceptedFriends, 'accepted-friends');
-                updaterequestList(requestedFriends, 'new-requests');
-                */
-
-            }
-        };
-    
-        xmlhttp.open("GET", ajax_load_friends.php, true);
-        xmlhttp.send();
-    }
 
 
-    /*
- 
-    function updateacceptedList(friends, listId) {
-        const list = document.getElementById(listId);
-        
-        list.innerHTML = ''; 
-    
-        friends.forEach(friend => {
-            const listItem = document.createElement('li');
-            const a =document.createElement('a');
-            const not = document.createElement('span');
-            
-            a.innerHTML = friend.username;
-            a.setAttribute('href','chat.php?friend='+friend.username);
-            not.innerHTML=(friend.unread);
-            list.appendChild(a);
-            list.appendChild(listItem);
-            a.appendChild(not);
+window.setInterval(function () {
+    loadFriends();
+}, 1000);
 
-            
-    });
-    }
+function loadFriends() {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            let data = JSON.parse(xmlhttp.responseText);
 
-    function updaterequestList(friends, listId) {
-        const list = document.getElementById(listId);
-        list.innerHTML = ''; 
-        
-        friends.forEach(friend => {
+            const acceptedFriends = data.filter(friend => friend.status === "accepted");
+            const requestedFriends = data.filter(friend => friend.status === "requested");
+            console.log(data);
 
-             
-            const listItem = document.createElement('li');
-            listItem.innerText= friend.username;
-       
-            const actionButtonsDiv = document.createElement('div');
-     
-            actionButtonsDiv.className = 'request-action-buttons';
-        
-            const acceptButton = document.createElement('button');
-            
-                acceptButton.className = 'greyButton';
-             acceptButton.type = 'button';
-             acceptButton.type="Accept";
-            acceptButton.innerText = 'Accept';
-            actionButtonsDiv.appendChild(acceptButton);
-            
+            // Aktualisierung der Listen auf der Seite
+            /* AUSKOMMENTIERT VON CIA
+            updateacceptedList(acceptedFriends, 'accepted-friends');
+            updaterequestList(requestedFriends, 'new-requests');
+            */
 
-            const rejectButton = document.createElement('button');
-            rejectButton.className = 'greyButton';
-            rejectButton.innerText = 'Reject';
-            rejectButton.type='Reject';
-            rejectButton.type = 'button';
-            actionButtonsDiv.appendChild(rejectButton);
+        }
+    };
 
-            listItem.appendChild(actionButtonsDiv);
-
-    
-        list.appendChild(listItem);
-      
-       
-    });
-    
+    xmlhttp.open("GET", "ajax_load_friends.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/json');
+    xmlhttp.send();
 }
 
-    populateList();
+
+/*
+ 
+function updateacceptedList(friends, listId) {
+    const list = document.getElementById(listId);
+    
+    list.innerHTML = ''; 
+ 
+    friends.forEach(friend => {
+        const listItem = document.createElement('li');
+        const a =document.createElement('a');
+        const not = document.createElement('span');
+        
+        a.innerHTML = friend.username;
+        a.setAttribute('href','chat.php?friend='+friend.username);
+        not.innerHTML=(friend.unread);
+        list.appendChild(a);
+        list.appendChild(listItem);
+        a.appendChild(not);
+
+        
+});
+}
+
+function updaterequestList(friends, listId) {
+    const list = document.getElementById(listId);
+    list.innerHTML = ''; 
+    
+    friends.forEach(friend => {
+
+         
+        const listItem = document.createElement('li');
+        listItem.innerText= friend.username;
+   
+        const actionButtonsDiv = document.createElement('div');
+ 
+        actionButtonsDiv.className = 'request-action-buttons';
+    
+        const acceptButton = document.createElement('button');
+        
+            acceptButton.className = 'greyButton';
+         acceptButton.type = 'button';
+         acceptButton.type="Accept";
+        acceptButton.innerText = 'Accept';
+        actionButtonsDiv.appendChild(acceptButton);
+        
+
+        const rejectButton = document.createElement('button');
+        rejectButton.className = 'greyButton';
+        rejectButton.innerText = 'Reject';
+        rejectButton.type='Reject';
+        rejectButton.type = 'button';
+        actionButtonsDiv.appendChild(rejectButton);
+
+        listItem.appendChild(actionButtonsDiv);
+
+ 
+    list.appendChild(listItem);
+  
+   
+});
+ 
+}
+
+populateList();
 */

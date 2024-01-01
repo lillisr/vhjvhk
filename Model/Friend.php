@@ -14,11 +14,13 @@ class Friend implements \JsonSerializable
     private $username;
     private $status;
 
+    private $unread;
+
     public function __construct($username = null){
         //initialisierung über $this-> 
         $this->username = $username;
         $this->status = null;
-
+        $this->unread = null;
     }
 
     public function getUsername(){
@@ -27,6 +29,10 @@ class Friend implements \JsonSerializable
 
     public function getStatus(){
         return $this->status;
+    }
+
+    public function getUnread(){
+        return $this->unread;
     }
 
     public function setAccepted() {
