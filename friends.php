@@ -28,7 +28,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "add-friend") {
 }
 
 
-//check if accept friend is sent -> per get machen mit query als link
+//check if accept friend is sent 
 
 if (isset($_POST["action"]) && $_POST["action"] == "accept-friend") {
 
@@ -73,7 +73,8 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="main2.js" defer></script>
+    <script src="main2.js"></script>
+
 </head>
 
 <body class="friends">
@@ -108,10 +109,15 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
                     $getFriendStatus = $friend->getStatus();
                     if ($getFriendStatus == "accepted") {
                         ?>
-                        <a class="list-group-item list-group-item-action"
-                            href="chat.php?friend=<?= urlencode($friend->getUsername()) ?>">
-                            <?= $friend->getUsername() ?>
-                        </a>
+                        <ul class="list-group">
+                            <a class="list-group-item list-group-item-action"
+                                href="chat.php?friend=<?= urlencode($friend->getUsername()) ?>">
+                                <?= $friend->getUsername() ?>
+                                <span class="badge badge-primary badge-pill bg-primary pull-right">
+                                    <?= $friend->getUnread(); ?>
+                                </span>
+                            </a>
+                    </ul>
                         <!-- </li> -->
 
 
@@ -250,6 +256,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "remove-friend") {
 
     </div>
 
+    
 
 </body>
 
