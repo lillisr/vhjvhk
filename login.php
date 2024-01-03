@@ -6,6 +6,8 @@ if (isset($_SESSION["user"]) && $_SESSION["user"]) {
     die();
 }
 
+//validation
+$showValidationMessage = false;
 
 //data was sent, button is clicked
 if (isset($_POST["action"]) && $_POST["action"] == "login") {
@@ -18,9 +20,8 @@ if (isset($_POST["action"]) && $_POST["action"] == "login") {
     if ($service->login($username, $password)) {
         $_SESSION["user"] = $username;
         header("Location: friends.php");
-    } else { ?>
-        <h3> Invalid Username / Password </h3>
-        <?php
+    } else { 
+         $showValidationMessage = true;  // wrong username or password
     }
 }
 
@@ -47,6 +48,18 @@ if (isset($_POST["action"]) && $_POST["action"] == "login") {
                     <div class="d-flex justify-content-center">
                         <legend>Please sign in</legend>
                     </div>
+
+                    <?php
+                    // Display the validation message only if its true
+                    if ($showValidationMessage) {
+                        ?>
+                        <div class="alert alert-danger text-center mt-3" role="alert">
+                            Invalid Username or Password. Please try again.
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    
                     <div class="mb-3">
                         <!-- <label for="username">Username:</label> -->
                         <input type="text" id="username" name="username" placeholder="Username" class="form-control">
@@ -63,6 +76,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "login") {
                             <button type="submit" name="action" value="login" class="btn btn-primary">Login</button>
                         </div>
                     </div>
+                    
                 </fieldset>
             </form>
         </div>
