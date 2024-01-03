@@ -59,14 +59,14 @@ background-color: rgb(250, 250, 250);
 
 
 /* Login */
-.container {
+/*.container {
     max-width: 900px;
     margin: 0 auto;
     box-sizing: border-box;
     padding-left: 10pt;
     padding-right: 10pt;
 
-}
+}*/
 
 #registerButton {
     text-decoration: none;
@@ -261,7 +261,7 @@ a:hover{
 
 
 /*chat-interface*/
-/*#chat{
+#chat{
     resize: horizontal;
 }
 
@@ -272,7 +272,7 @@ a:hover{
 .chat span {
     float: right;
     color: rgb(204, 207, 209);
-}*/
+}
 
 .Message{
     box-sizing: border-box;

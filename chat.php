@@ -20,7 +20,7 @@ $friend = $_GET['friend'];
 <head>
     <title>chat</title>
     <meta charset="UTF-8">
-   
+    
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
 
 
@@ -28,7 +28,7 @@ $friend = $_GET['friend'];
 
 <body>
     <div class="container mt-3">
-        <form class="chat" method="GET">
+        <form  method="GET">
             <h1 id="chatPartner"> </h1>
             <!--<a href="friends.php" target="_back"> >Back </a> | -->
             <a class="btn btn-secondary" href="friends.php" role="button">Back</a> 
@@ -58,7 +58,7 @@ $friend = $_GET['friend'];
 </div>
      
             <hr />
-            <div class="chatlist" >
+            <div  >
                 <div class="border p-3">
                     <ul id="chatMessages" class="list-unstyled">
 
