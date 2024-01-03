@@ -64,41 +64,50 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <!doctype html>
 <html>
     <head>
-        <title>Register</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="allgemien.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">        
+        <title>Register</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    
     </head>
 
     <body> 
-        <div class="container">
-        <img src="user.png" id="image" height="100" width="100">
-        <h1>Register yourself</h1>
-        <form id="registerForm" method = "post" action="<?php echo "register.php"?>">
-            <fieldset class="legendFieldset">
-                <legend>Register</legend><br>
-                    <div class="formControl">
-                        <label for="username">Username:</label>
-                        <input class="error-input" class="success-input" type="text" name="user" value="<?php echo $user;?>" placeholder="Username"><br>
-                        <span class="error"> * <?php echo $emptyErr;?></span>
-                        <br><br>
-                                        
-                        <label for="password">Password:</label>
-                        <input type="password" class="error-input" class="success-input" name="password" value="<?php echo $password;?>" placeholder="Password"><br>
-                        <span class="error"> *  <?php echo $passwordErr;?> </span>
-                        <br><br>
+        <div class="text-center">
+            <img src="user.png" class="rounded-circle" height="150" width="150">
+        </div>
+        <br><br>
 
-                        <label for="confirmPassword">Confirm Password:</label>
-                        <input type="password" class="error-input" class="success-input"  name="confirmPassword" value="<?php echo $confirmPassword;?>" placeholder="Confirm Password"><br>
-                        <span class="error"> *  <?php echo $passwordConfErr;?><br>
-                        <br><br>
+        <div class="container border">
+            <div class="text-center" >
+            <br><br>
+                <h1>Register yourself</h1>
+                <br><br>
+                <form id="registerForm" method = "post" action="<?php echo "register.php"?>">
+                    <div class="pagination justify-content-center">
+                        <div class="w-50 mb-3 mt-3">
+                            <input type="username" class="form-control" id="user" placeholder="Username" name="user" value="<?php echo $user;?>">
+                            <p class="text-danger"> <?php echo $emptyErr;?><br>
                         </div>
-                        <p></p>
-                        <input type="button" value="Cancel" onclick="window.location.href='login.php'" class="greyButton"> </button>
-
-                        <input type="submit" value="Create Account" id="button" class="coloredButton"></button>
                     </div>
-        </fieldset>
-        </form>
+                    <div class="pagination justify-content-center">
+                        <div class=" w-50 mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="<?php echo $password;?>">
+                            <p class="text-danger"> <?php echo $passwordErr;?><br>
+                        </div>
+                    </div>
+
+                    <div class="pagination justify-content-center">
+                        <div class="w-50 mb-3">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" value="<?php echo $confirmPassword;?>">
+                            <p class="text-danger"> <?php echo $passwordConfErr;?>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-secondary" value="Cancel" onclick="window.location.href='login.php'"> </button>
+
+                    <input type="submit" class="btn btn-primary" value="Create Account" id="button"></button>
+                    <br><br>
+                </form>
+            </div>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>
