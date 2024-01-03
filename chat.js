@@ -112,9 +112,20 @@ function loadMessages(data) {
 
             console.log(`${time}`);
 
+          
+
             //messages in correct order
             const listItem = document.createElement("li");
-            listItem.innerHTML = `${from}: ${msg}  <span class="time">${formattedTime}</span>`;
+
+             // Füge Bootstrap-Klassen für Flexbox hinzu
+            listItem.classList.add("d-flex", "justify-content-between", "align-items-center");
+
+            listItem.innerHTML = //`${from}: ${msg}  <span class="time">${formattedTime}</span>`;
+             `
+             ${from}: ${msg}
+             <span style="float: right" class="time" >${formattedTime}</span>`;
+                       
+            
             chatList.appendChild(listItem);
         });
 
@@ -129,6 +140,8 @@ function getChatHeadline() {
     //console.log(headline);
     headline.innerText = "Chat with " + friend; 
 }
+
+
 
 //reloading the messages every second
 /*window.setInterval(function () {

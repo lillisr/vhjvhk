@@ -1,4 +1,4 @@
-//Id hinter URL plazieren
+
 window.collectionId = "5cff7201-37c0-4016-82fd-e91db1a98eb2";
 
 //  Basis-URL des Servers
@@ -8,104 +8,6 @@ window.backendUrl = "https://online-lectures-cs.thi.de/chat/" + window.collectio
 window.tokenTOM = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMjI5NTIzfQ.15wcKi2kqllvpeAFIAYVa2UlSUxUUgOrt7FaZS9rrlM";
 window.tokenJERRY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAyMjk1MjN9.Jwr1I8pkjh3roG_3uUss3kgcGrays2eepnFzdawNuDA";
 
-/*
-//Funktion, um die Datalist mit Benutzernamen zu befüllen
-function populateList() {
-    const datalist = document.getElementById('friend-selector');
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            let data = JSON.parse(xmlhttp.responseText);
-            console.log(data);
-            const userNames = data
-            // Benutzernamen zur Datalist hinzufügen
-                userNames.forEach(userName => {
-                    
-                    if ( userName !== "Tom"){
-                        const option = document.createElement('option');
-                    option.value = userName;
-                    datalist.appendChild(option);
-                    
-                    }
-                });
-        }
-    };
-    xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/user", true);
-    xmlhttp.setRequestHeader('Authorization', 'Bearer '+window.tokenTOM);
-    xmlhttp.send();
-
-}
-
-// Funktion, um einen neuen Freund hinzuzufügen
-function addFriend() {
-    const friendRequestName = document.getElementById('friend-request-name').value;
-    
-    //  ob der Nutzername in der Liste ist 
-    if (friendRequestName && friendRequestName !== 'Tom'  ) {    
-        
-                                                   
-        // Backend-AJAX-Anfrage, um eine Freundschaftsanfrage zu senden
-        sendFriendRequest(friendRequestName);
-    } else {
-        alert('Ungültiger Benutzername');
-    }
-
-}
-/*
-function deleteFriend(){
-    const friendRequestName = document.getElementById('friend-request-name').value;
-deletefriendanfrage(friendRequestName);
-}
-*/
-// Funktion, um eine Freundschaftsanfrage an das Backend zu senden
-/*
-function sendFriendRequest(friendName) {
-
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-   
-   if (xmlhttp.readyState == 4 && xmlhttp.status == 204 ) {
-       //AUSKOMMENTIERT VON CIA
-       //loadFriends();
-
-}
-};
-
-   xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend", true);
-xmlhttp.setRequestHeader('Content-type', 'application/json');
-xmlhttp.setRequestHeader('Authorization', 'Bearer '+ window.tokenTOM );
-
-let data = {
-   username: friendName
-};
-let jsonString = JSON.stringify(data);
-xmlhttp.send(jsonString);
-}
- 
-
-/*delete
-function deletefriendanfrage(friendName) {
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-   if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-       loadFriends();
-       console.log("Removed...");
-   }
-};
-xmlhttp.open("DELETE", "https://online-lectures-cs.thi.de/chat/5cff7201-37c0-4016-82fd-e91db1a98eb2/friend/tom", true);
-xmlhttp.setRequestHeader('Content-type', 'application/json');
-xmlhttp.setRequestHeader('Authorization', 'Bearer '+ window.tokenTOM);
-xmlhttp.send();
-}
-*/
-
-
-/* AUSKOMMENTIERT VON CIA
-window.setInterval(function() {
-    loadFriends();
-    }, 1000);
-    */
 
 
 window.setInterval(function () {
@@ -123,10 +25,11 @@ function loadFriends() {
             console.log(data);
 
             // Aktualisierung der Listen auf der Seite
-            /* AUSKOMMENTIERT VON CIA
+
             updateacceptedList(acceptedFriends, 'accepted-friends');
             updaterequestList(requestedFriends, 'new-requests');
-            */
+
+            //location.reload();
 
         }
     };
@@ -137,68 +40,69 @@ function loadFriends() {
 }
 
 
-/*
- 
+
 function updateacceptedList(friends, listId) {
     const list = document.getElementById(listId);
-    
-    list.innerHTML = ''; 
- 
+
+    list.innerHTML = '';
+    //list.className='list-group';
+
     friends.forEach(friend => {
         const listItem = document.createElement('li');
-        const a =document.createElement('a');
+        const a = document.createElement('a');
         const not = document.createElement('span');
-        
-        a.innerHTML = friend.username;
-        a.setAttribute('href','chat.php?friend='+friend.username);
-        not.innerHTML=(friend.unread);
-        list.appendChild(a);
-        list.appendChild(listItem);
-        a.appendChild(not);
+        const listgroup = document.createElement('div');
 
-        
-});
+
+        a.innerHTML = friend.username;
+        a.setAttribute('href', 'chat.php?friend=' + friend.username);
+        not.innerHTML = (friend.unread);
+        list.appendChild(a);
+        // list.appendChild(listItem);
+        a.appendChild(not);
+        a.className = 'list-group-item list-group-item-action';
+        not.className = 'badge badge-primary badge-pill bg-primary pull-right';
+
+
+    });
 }
 
 function updaterequestList(friends, listId) {
     const list = document.getElementById(listId);
-    list.innerHTML = ''; 
-    
-    friends.forEach(friend => {
+    const listItem = document.createElement('p');
+    list.innerHTML = '';
 
-         
-        const listItem = document.createElement('li');
-        listItem.innerText= friend.username;
-   
-        const actionButtonsDiv = document.createElement('div');
- 
-        actionButtonsDiv.className = 'request-action-buttons';
-    
-        const acceptButton = document.createElement('button');
+    if (friends.length == 0) {
         
-            acceptButton.className = 'greyButton';
-         acceptButton.type = 'button';
-         acceptButton.type="Accept";
-        acceptButton.innerText = 'Accept';
-        actionButtonsDiv.appendChild(acceptButton);
-        
+        listItem.innerText = "none...";
+       
 
-        const rejectButton = document.createElement('button');
-        rejectButton.className = 'greyButton';
-        rejectButton.innerText = 'Reject';
-        rejectButton.type='Reject';
-        rejectButton.type = 'button';
-        actionButtonsDiv.appendChild(rejectButton);
+    } else {
+        friends.forEach(friend => {
+           
+            listItem.innerText = friend.username;
+            listItem.className = 'form-control';
 
-        listItem.appendChild(actionButtonsDiv);
+            listItem.setAttribute('data-bs-target', '#acceptModal');
 
- 
+            listItem.addEventListener("click", function () {
+                openModal(friend.username)
+            });
+
+
+        });
+    }
     list.appendChild(listItem);
-  
-   
-});
- 
 }
 
-populateList();
-*/
+function openModal(username) {
+    console.log("hier modal " + document.getElementById('acceptModal'));
+    const myModal = new bootstrap.Modal(document.getElementById('acceptModal'));
+
+    myModal.show();
+    document.getElementById('modal-title').textContent = "Friend request from " + username;
+}
+
+
+
+
