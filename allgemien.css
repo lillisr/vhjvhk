@@ -1,8 +1,8 @@
 /*for everything:*/
-*{
+/**{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(234, 234, 234);
-}
+}*/
 
 /*headings:*/
 h1{
@@ -191,7 +191,7 @@ text-decoration: none;
 	margin-bottom: 0px;
 }
 
-.formControl input {
+/*.formControl input {
 	border: 2px solid #f0f0f0;
 	border-radius: 4px;
 	display: block;
@@ -199,7 +199,7 @@ text-decoration: none;
 	font-size: 14px;
 	padding: 3px;
 	width: 90%;
-}
+}*/
 
 .container .error-input{
     border-color: #e74c3c;
@@ -261,7 +261,7 @@ a:hover{
 
 
 /*chat-interface*/
-#chat{
+/*#chat{
     resize: horizontal;
 }
 
@@ -272,7 +272,7 @@ a:hover{
 .chat span {
     float: right;
     color: rgb(204, 207, 209);
-}
+}*/
 
 .Message{
     box-sizing: border-box;
@@ -295,9 +295,9 @@ a:hover{
     margin-left: 10px;
 } 
 
-.chatlist ul {
+/*.chatlist ul {
     list-style-type: none;
-}
+}*/
 
 /*responsive design*/
 
