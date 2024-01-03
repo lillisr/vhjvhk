@@ -20,14 +20,14 @@ $friend = $_GET['friend'];
 <head>
     <title>chat</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="allgemien.css">
+    
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
 
 
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-3">
         <form class="chat" method="GET">
             <h1 id="chatPartner"> </h1>
             <!--<a href="friends.php" target="_back"> >Back </a> | -->
@@ -50,7 +50,7 @@ $friend = $_GET['friend'];
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <a class="btn btn-secondary" href="friends.php?friend=<?php echo $_GET['friend']?>&action=remove-friend" role="button" >Yes, please!</a>
+        <a class="btn btn-primary" href="friends.php?friend=<?php echo $_GET['friend']?>&action=remove-friend" role="button" >Yes, please!</a>
         <!-- <button type="button" class="btn btn-primary" >Yes, please!</button> -->
       </div>
     </div>
@@ -58,9 +58,9 @@ $friend = $_GET['friend'];
 </div>
 
             <hr />
-            <div class="chatlist">
-                <div>
-                    <ul id="chatMessages">
+            <div class="chatlist" >
+                <div class="border p-3">
+                    <ul id="chatMessages" class="list-unstyled">
 
                     </ul>
                 </div>
